@@ -52,15 +52,7 @@
         location.reload()
     }
 
-    function control() {
-        if (document.getElementById('uname') == null
-            || document.getElementById('uname') == "") {
-            alert("El campo no puede estar vacío.");
-            document.getElementById('uname').focus();
-            return false;
-        }
-        return true;
-    }
+    
 
     
     function abreviacion(){
