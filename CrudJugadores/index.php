@@ -41,13 +41,42 @@
     #resultado.ok {
         background-color: green;
     }
+    input:invalid { border-color: red; } input, input:valid { border-color: #ccc; }
 </style>
 
 <script>
+    var CURP = document.getElementById('inputCurp');
+    CURP.oninvalid = function(event) { event.target.setCustomValidity('Username should only contain lowercase letters. e.g. john'); }
     function reload() {
         //setTimeout('document.location.reload()',2000);
         location.reload()
     }
+
+    function control() {
+        if (document.getElementById('uname') == null
+            || document.getElementById('uname') == "") {
+            alert("El campo no puede estar vacío.");
+            document.getElementById('uname').focus();
+            return false;
+        }
+        return true;
+    }
+
+    
+    function abreviacion(){
+        var nombre = document.getElementById('inputNombre');
+        var apellido = document.getElementById('inputApellido');
+        var abreviacion = document.getElementById('inputAbreviacion');
+        document.formulario.inputAbreviacion.value=apellido;
+        /*if(nombre != null && apellido != null){
+            nom: String=nombre;
+            apell: String=apellido;
+            abre: String = abreviacion;
+            nom.indexOf(2,0);
+            document.formulario.abreviacion=nom;
+        }*/
+    }
+
 </script>
 
 <body>
@@ -85,7 +114,7 @@
     </div>
 
     <div class="container" style="margin-top: 10px;">
-        <form class="row g-3" action="insertar.php?id=<?php echo $idAfiliacion ?>" method="POST">
+        <form class="row g-3" action="insertar.php?id=<?php echo $idAfiliacion ?>" method="POST" id="formulario">
             <div class="col-md-2">
                 <label for="inputIDAfiliacion" class="form-label"><strong>IDAfiliacion</strong></label>
                 <input type="text" class="form-control" id="inputIDAfiliacion" name="IDAfiliacion" required="true" disabled value="<?php echo($idAfiliacion); ?>">
@@ -96,13 +125,13 @@
             </div>
             <div class="col-md-5">
                 <label for="inputApellido" class="form-label"><strong>Apellidos</strong></label>
-                <input type="text" class="form-control" id="inputApellido" name="Apellidos" required="true" >
+                <input type="text" class="form-control" id="inputApellido" name="Apellidos" required="true" onkeyup="abreviacion()">
             </div>
-            <div class="col-md-6">
-                <label for="inputFecha" class="form-label"><strong>Fecha</strong></label>
+            <div class="col-md-2">
+                <label for="inputFecha" class="form-label"><strong>Fecha de nacimiento</strong></label>
                 <input type="date" class="form-control" id="inputFecha" name="Fecha" required="true" >
             </div>
-            <div class="col-md-6">
+            <div class="col-md-4">
                 <label for="inputCurp" class="form-label"><strong>Curp</strong></label>
                 <input type="text" class="form-control" required="true"  id="inputCurp" name="CURP" pattern="([A-Z]{4}([0-9]{2})(0[1-9]|1[0-2])(0[1-9]|1[0-9]|2[0-9]|3[0-1])[HM](AS|BC|BS|CC|CL|CM|CS|CH|DF|DG|GT|GR|HG|JC|MC|MN|MS|NT|NL|OC|PL|QT|QR|SP|SL|SR|TC|TS|TL|VZ|YN|ZS|NE)[A-Z]{3}[0-9A-Z]\d)">
                 <pre id="resultado"></pre>
@@ -161,7 +190,7 @@
         </form>
         <br>
         
-        <div class="col-md-12" style="height:215px; overflow: scroll;">
+        <div class="col-md-12" style="height:300px; overflow: scroll;">
             <table class="table">
                 <thead class="table-success table-striped">
                     <tr>
