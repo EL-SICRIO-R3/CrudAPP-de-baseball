@@ -32,21 +32,11 @@
     
     
 </head>
-<style>
-    #resultado {
-    background-color: red;
-    color: white;
-    font-weight: bold;
-    }
-    #resultado.ok {
-        background-color: green;
-    }
-    input:invalid { border-color: red; } input, input:valid { border-color: #ccc; }
-</style>
+
 
 <script>
     var CURP = document.getElementById('inputCurp');
-    CURP.oninvalid = function(event) { event.target.setCustomValidity('Username should only contain lowercase letters. e.g. john'); }
+    CURP.oninvalid = function(event) { event.target.setCustomValidity('La no tiene el formato correcto'); }
     function reload() {
         //setTimeout('document.location.reload()',2000);
         location.reload()

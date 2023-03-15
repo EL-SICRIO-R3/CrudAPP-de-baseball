@@ -4,7 +4,7 @@
         $user="root";
         $pass="";
 
-        $bd="programacionweb";
+        $bd="partidos-app";
 
         $con=mysqli_connect($host,$user,$pass);
 
