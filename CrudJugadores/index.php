@@ -29,40 +29,17 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link rel="stylesheet" href="styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    
+    <script src="./validaciones.js"></script>
+
     
     
 </head>
 
 
-<script>
-    var CURP = document.getElementById('inputCurp');
-    CURP.oninvalid = function(event) { event.target.setCustomValidity('La no tiene el formato correcto'); }
-    function reload() {
-        //setTimeout('document.location.reload()',2000);
-        location.reload()
-    }
-
-    
-
-    
-    function abreviacion(){
-        var nombre = document.getElementById('inputNombre');
-        var apellido = document.getElementById('inputApellido');
-        var abreviacion = document.getElementById('inputAbreviacion');
-        document.formulario.inputAbreviacion.value=apellido;
-        /*if(nombre != null && apellido != null){
-            nom: String=nombre;
-            apell: String=apellido;
-            abre: String = abreviacion;
-            nom.indexOf(2,0);
-            document.formulario.abreviacion=nom;
-        }*/
-    }
-
-</script>
 
 <body>
-
 
     <div class="container" style="margin-top: 10px;" >
         <nav class="navbar navbar-expand-lg bg-body-tertiary" id="header">
@@ -103,11 +80,11 @@
             </div>
             <div class="col-md-5">
                 <label for="inputNombre" class="form-label"><strong>Nombre</strong></label>
-                <input type="text" class="form-control" id="inputNombre" name="Nombre" required="true" >
+                <input type="text" class="form-control" id="inputNombre" name="Nombre" required="true"  onblur="abreviacion()" >
             </div>
             <div class="col-md-5">
                 <label for="inputApellido" class="form-label"><strong>Apellidos</strong></label>
-                <input type="text" class="form-control" id="inputApellido" name="Apellidos" required="true" onkeyup="abreviacion()">
+                <input type="text" class="form-control" id="inputApellidos" name="Apellidos" required="true" onblur="abreviacion()"  >
             </div>
             <div class="col-md-2">
                 <label for="inputFecha" class="form-label"><strong>Fecha de nacimiento</strong></label>
@@ -151,13 +128,13 @@
                     <option>Ambidiestro</option>
                 </select>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-10">
                 <label for="inputPagina" class="form-label"><strong>Pagina</strong></label>
-                <input type="text" class="form-control" id="inputPagina" name="Pagina" required="true" >
+                <input type="text" class="form-control" id="inputPagina" name="Pagina" required="true" disabled >
             </div>
             <div class="col-md-2">
                 <label for="inputAbreviacion" class="form-label"><strong>Abreviacion</strong></label>
-                <input type="text" class="form-control" id="inputAbreviacion" name="Abreviacion" required="true" >
+                <input type="text" class="form-control" id="inputAbreviacion" name="Abreviacion" required="true" disabled >
             </div>
             <div class="col-md-2">
                 <label for="inputState" class="form-label"><strong>Status</strong></label>
