@@ -13,6 +13,7 @@ $Posicion=$_POST['Posicion'];
 $Golpea=$_POST['Golpea'];
 $Tira=$_POST['Tira'];
 $Pagina=$_POST['Pagina'];
+//echo "<script>console.log('Console: " . $Pagina . "' );</script>";
 $Abreviacion=$_POST['Abreviacion'];
 $Status=$_POST['Status'];
 

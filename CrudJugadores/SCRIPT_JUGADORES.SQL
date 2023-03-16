@@ -12,5 +12,5 @@ CREATE TABLE Jugadores(
   Status int(1)
 );
 
-INSERT INTO Jugadores (Nombre, Apellidos, Fecha, CURP, Posicion, Golpea, Tira, Pagina, Abreviacion, Status) VALUES
+INSERT INTO Jugadores (IDAfiliacion, Nombre, Apellidos, Fecha, CURP, Posicion, Golpea, Tira, Pagina, Abreviacion, Status) VALUES
 (230001,'Williams', 'Leyva Peiro', '07/10/2023', 'LDPW040229HBCYRLA6', 'P', 'Derecho', 'Derecho', 'will.com', 'abreviacion', 1)

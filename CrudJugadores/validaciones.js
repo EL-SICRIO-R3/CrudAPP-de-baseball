@@ -42,28 +42,37 @@
 
     function pagina(nombre, apellidos){
         
-        console.log(apellidos);
-        console.log(nombre);
-        var strPagina = "http://localhost:8080/programacion-web/CrudJugadores/CrudJugadores/jugador";
-        console.log(strPagina);
+        //console.log(apellidos);
+        //console.log(nombre);
+        var strPagina = "http://localhost:8080/programacion-web/CrudJugadores/CrudJugadores/jugador/";
+        //console.log(strPagina);
 
-        var nombreCompleto = nombre + " " + apellidos;
+        let nombreCompleto = nombre + " " + apellidos;
         console.log(nombreCompleto);
         var nomCompleto = nombreCompleto.split(" ");
         
+        
+
         for (var i=0; i < nomCompleto.length; i++) {
             if(nomCompleto[i] != ""){
-                strPagina=strPagina + "/" + nomCompleto[i];
+                if(i == nomCompleto.length-1){
+                    strPagina=strPagina + nomCompleto[i].toLowerCase();
+                }else{
+                    strPagina=strPagina + nomCompleto[i].toLowerCase() + "-";
+                }
+                
             }
         }
         console.log(strPagina);
         var idAfiliacion = document.getElementById('inputIDAfiliacion').value;
         console.log(idAfiliacion);
-        strPagina = strPagina + "/" + idAfiliacion + ".com"
-        console.log(strPagina);
+        strPagina = strPagina + "-" + idAfiliacion + ".com"
+        //console.log(strPagina);
 
         document.getElementById('inputPagina').value=strPagina
         document.getElementById('inputPagina').placeholder=strPagina;
+
+        console.log("Pagina: " + document.getElementById('inputPagina').value + "  Abreviacion: "+ document.getElementById('inputAbreviacion').value);
         
         
 
@@ -80,5 +89,6 @@
         console.log(abreviacion);*/
     }
 
+  
 
     

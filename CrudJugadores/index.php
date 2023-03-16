@@ -76,7 +76,7 @@
         <form class="row g-3" action="insertar.php?id=<?php echo $idAfiliacion ?>" method="POST" id="formulario">
             <div class="col-md-2">
                 <label for="inputIDAfiliacion" class="form-label"><strong>IDAfiliacion</strong></label>
-                <input type="text" class="form-control" id="inputIDAfiliacion" name="IDAfiliacion" required="true" disabled value="<?php echo($idAfiliacion); ?>">
+                <input type="text" class="form-control" id="inputIDAfiliacion" name="IDAfiliacion" required="true" readonly value="<?php echo($idAfiliacion); ?>">
             </div>
             <div class="col-md-5">
                 <label for="inputNombre" class="form-label"><strong>Nombre</strong></label>
@@ -119,7 +119,7 @@
                     <option>Zurdo</option>
                     <option>Ambidiestro</option>
                 </select>
-            </div>
+            </div> 
             <div class="col-md-2">
                 <label for="inputState" class="form-label"><strong>Tira</strong></label>
                 <select id="inputState" class="form-select" name="Tira" required="true" >
@@ -130,11 +130,11 @@
             </div>
             <div class="col-md-10">
                 <label for="inputPagina" class="form-label"><strong>Pagina</strong></label>
-                <input type="text" class="form-control" id="inputPagina" name="Pagina" required="true" disabled >
+                <input type="text" class="form-control" id="inputPagina" name="Pagina" required="true" readonly >
             </div>
             <div class="col-md-2">
                 <label for="inputAbreviacion" class="form-label"><strong>Abreviacion</strong></label>
-                <input type="text" class="form-control" id="inputAbreviacion" name="Abreviacion" required="true" disabled >
+                <input type="text" class="form-control" id="inputAbreviacion" name="Abreviacion" required="true" readonly >
             </div>
             <div class="col-md-2">
                 <label for="inputState" class="form-label"><strong>Status</strong></label>
@@ -149,7 +149,7 @@
         </form>
         <br>
         
-        <div class="col-md-12" style="height:300px; overflow: scroll;">
+        <div class="col-md-12" style="height:255px; overflow: scroll;">
             <table class="table">
                 <thead class="table-success table-striped">
                     <tr>
@@ -194,11 +194,14 @@
                         }
                     ?>
                 </tbody>
-
-                
             </table>
+            
         </div>
     </div>
+
+    <!-- <div class="menuContainer">
+        <iframe src="./menu.html"></iframe>
+    </div> -->
 </body>
 
 </html>
