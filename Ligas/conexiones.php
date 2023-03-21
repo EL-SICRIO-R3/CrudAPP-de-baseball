@@ -5,11 +5,11 @@
         $user="root";
         $pass="";
 
-        $bd="programacionweb";
+        $bd="partidos-app";
 
-        $con=mysqli_connect($host, $user, $pass);
+        $con=mysqli_connect($host,$user,$pass);
 
-        mysqli_select_db($con, $bd);
+        mysqli_select_db($con,$bd);
 
         return $con;
     }

@@ -48,32 +48,7 @@
     }
 </style>
 
-<script>
-    var CURP = document.getElementById('inputCurp');
-    CURP.oninvalid = function(event) { event.target.setCustomValidity('Username should only contain lowercase letters. e.g. john'); }
-    function reload() {
-        //setTimeout('document.location.reload()',2000);
-        location.reload()
-    }
 
-    
-
-    
-    function abreviacion(){
-        var nombre = document.getElementById('inputNombre');
-        var apellido = document.getElementById('inputApellido');
-        var abreviacion = document.getElementById('inputAbreviacion');
-        document.formulario.inputAbreviacion.value=apellido;
-        /*if(nombre != null && apellido != null){
-            nom: String=nombre;
-            apell: String=apellido;
-            abre: String = abreviacion;
-            nom.indexOf(2,0);
-            document.formulario.abreviacion=nom;
-        }*/
-    }
-
-</script>
 
 <body>
 
