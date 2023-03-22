@@ -38,20 +38,6 @@
     <script src="../js/Validaciones.js"></script>
     
 </head>
-<style>
-    #resultado {
-    background-color: red;
-    color: white;
-    font-weight: bold;
-    }
-    #resultado.ok {
-        background-color: green;
-    }
-    input:invalid { border-color: red; } input, input:valid { border-color: #ccc; }
-    #inputTemporada{
-        background: #E9ECEF;
-    }
-</style>
 
 
 

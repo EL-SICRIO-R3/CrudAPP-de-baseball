@@ -6,13 +6,7 @@ body {
     border-radius: 10px;
 }
 
-#resultado {
-    background-color: red;
-    color: white;
-    font-weight: bold;
+input:invalid { border-color: red; } input, input:valid { border-color: #ccc; }
+#inputTemporada{
+    background: #E9ECEF;
 }
-
-#resultado.ok {
-    background-color: green;
-}
-
