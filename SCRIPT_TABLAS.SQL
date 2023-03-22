@@ -17,16 +17,15 @@ INSERT INTO Jugadores (IDAfiliacion, Nombre, Apellidos, Fecha, CURP, Posicion, G
 
 CREATE TABLE Temporadas(
   IDTemporada int(6) PRIMARY KEY,
-  IDLiga varchar(6) FOREIGN KEY REFERENCES Ligas(IDLiga),
+  IDLiga varchar(6),
   Grupo varchar(20),
   Categoria varchar(10),
   Momento varchar(20),
   Temporada int(4),
   Status int(1) default 1,
-
-  
+	
+  FOREIGN KEY(IDLiga) REFERENCES Ligas(IDLiga)
 );
-
 INSERT INTO Temporadas values (180028, "RCV", "Novatas", "Varonil", "Amistoso", 2023, 1)
 
 CREATE TABLE Ligas(
