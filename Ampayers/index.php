@@ -45,6 +45,7 @@
     <script src="./validaciones.js"></script>
     
     
+    
 </head>
 <style>
     #resultado {
@@ -105,11 +106,11 @@
             </div>
             <div class="col-md-5">
                 <label for="inputNombre" class="form-label"><strong>Nombre</strong></label>
-                <input type="text" class="form-control" id="inputNombre" name="Nombre" required="true" onblur="abreviacion()">
+                <input type="text" class="form-control" id="inputNombre" name="Nombre" required="true"  onblur="abreviacion()" >
             </div>
             <div class="col-md-5">
                 <label for="inputApellido" class="form-label"><strong>Apellidos</strong></label>
-                <input type="text" class="form-control" id="inputApellido" name="Apellidos" required="true" onblur="abreviacion()">
+                <input type="text" class="form-control" id="inputApellidos" name="Apellidos" required="true" onblur="abreviacion()"  >
             </div>
             <div class="col-md-2">
                 <label for="inputFecha" class="form-label"><strong>Fecha de nacimiento</strong></label>
