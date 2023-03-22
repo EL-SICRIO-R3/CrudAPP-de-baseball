@@ -151,7 +151,7 @@
                         <th><?php  echo $row['Status']?></th>
                         <th><a href="actualizar.php?id=<?php echo $row['IDLiga'] ?>"
                             class="btn btn-primary">Editar</a></th>
-                        <th><a href="delete.php?id=<?php echo $row['IDLigaa'] ?>"
+                        <th><a href="delete.php?id=<?php echo $row['IDLiga'] ?>"
                             class="btn btn-danger">Eliminar</a></th>
                     </tr>
                     <?php

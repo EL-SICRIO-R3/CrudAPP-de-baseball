@@ -1,0 +1,17 @@
+body {
+    background-color: #C2D6D3;
+}
+
+#header {
+    border-radius: 10px;
+}
+
+#resultado {
+    background-color: red;
+    color: white;
+    font-weight: bold;
+}
+
+#resultado.ok {
+    background-color: green;
+}

@@ -17,12 +17,14 @@ INSERT INTO Jugadores (IDAfiliacion, Nombre, Apellidos, Fecha, CURP, Posicion, G
 
 CREATE TABLE Temporadas(
   IDTemporada int(6) PRIMARY KEY,
-  IDLiga varchar(6),
+  IDLiga varchar(6) FOREIGN KEY REFERENCES Ligas(IDLiga),
   Grupo varchar(20),
   Categoria varchar(10),
   Momento varchar(20),
   Temporada int(4),
-  Status int(1) default 1
+  Status int(1) default 1,
+
+  
 );
 
 INSERT INTO Temporadas values (180028, "RCV", "Novatas", "Varonil", "Amistoso", 2023, 1)
@@ -40,3 +42,18 @@ CREATE TABLE Ligas(
 );
 
 INSERT INTO Ligas VALUES ("RCV", "Club Deportivo RCV", "Lic. Jorge Torres", "Jorge Sosa", "111,222,333", "Avenida UAS", "6674158965", "https://facebook.com/rcv/", 1)
+
+CREATE TABLE Parques(
+  IDCampo int(4) PRIMARY KEY,
+  Descripcion varchar(120)
+);
+
+CREATE TABLE Ampayers(
+  IDAmpayer int(4) PRIMARY KEY,
+  Nombre varchar(20),
+  Apellidos varchar(30),
+  Fecha date,
+  CURP varchar(18),
+  Abreviacion varchar(120),
+  Status int(1)
+);

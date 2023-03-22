@@ -11,10 +11,15 @@
     $id=mysqli_fetch_array($queryId);
 
     //$row=mysqli_fetch_array($query);
-    $idTemporada= 1 . date("m") . date("y");
-    $idTemporada=$idTemporada*10;
+    $idTemporada= date("y");
+    $idTemporada=$idTemporada*10000;
     $idTemporada=$idTemporada+$id['id']+1;
     $DateA = date("Y");
+
+    
+    $sqlLiga="SELECT *  FROM Ligas";
+    $queryLiga=mysqli_query($con, $sqlLiga);
+
     
     
 ?>
@@ -93,14 +98,11 @@
             <div class="col-md-3">
                 <label for="inputIDLiga" class="form-label"><strong>IDLiga</strong></label>
                 <select id="inputIDLiga" class="form-select" name="IDLiga" required="true" >
-                    <option select >RCV</option>
-                    <option>SDF</option>
-                    <option>RJU</option>
-                    <option>DFH</option>
-                    <option>NHD</option>
-                    <option>ERH</option>
-                    <option>UJF</option>
-                    <option>JKL</option>
+                    <?php
+                        while ($rowL=mysqli_fetch_array($queryLiga)) {
+                            echo "<option>".$rowL['IDLiga']."</option>";
+                        }
+                    ?>
                 </select>
             </div>
             <div class="col-md-3">
