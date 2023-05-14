@@ -73,3 +73,28 @@ CREATE TABLE Equipos(
 
   FOREIGN KEY(IDTecnico) REFERENCES Manejadores(IDTecnico)
 );
+
+CREATE TABLE Avisos(
+  IDAviso int(4) PRIMARY KEY,
+  Aviso varchar(300)
+);
+
+CREATE TABLE Juegos(
+  IDJuego int PRIMARY KEY,
+  IDtemporada Int,
+  Jornada int,
+  IDCampo int,
+  Fecha date,
+  Hora datetime,
+  Clima varchar(30),
+  IDEquipoVisitante int(4),
+  IDEquipoLocal int(4),
+  Final varchar(150),
+  IDAviso int,
+
+  FOREIGN KEY(IDTemporada) REFERENCES Temporadas(IDTemporada)
+  FOREIGN KEY(IDCampo) REFERENCES Parques(IDCampo)
+  FOREIGN KEY(IDEquipoVisitante) REFERENCES Equipos(IDEquipo)
+  FOREIGN KEY(IDEquipoLocal) REFERENCES Equipos(IDEquipo)
+  FOREIGN KEY(IDAviso) REFERENCES Avisos(IDAviso)
+);
