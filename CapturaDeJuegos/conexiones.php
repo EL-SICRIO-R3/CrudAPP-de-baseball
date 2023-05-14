@@ -1,6 +1,5 @@
 <?php
-    function conectar()
-    {
+    function conectar(){
         $host="localhost";
         $user="root";
         $pass="";

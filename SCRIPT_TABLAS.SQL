@@ -56,3 +56,20 @@ CREATE TABLE Ampayers(
   Abreviacion varchar(120),
   Status int(1)
 );
+
+/* ----------------PRUEBAS------------------*/
+CREATE TABLE Manejadores(
+  IDTecnico int(4) PRIMARY KEY,
+  Nombre varchar(120),
+  Tipo varchar(120)
+);
+
+CREATE TABLE Equipos(
+  IDEquipo int(4) PRIMARY KEY,
+  Nombre varchar(20),
+  IDLogo int,
+  Ciudad varchar(30),
+  IDTecnico int(4),
+
+  FOREIGN KEY(IDTecnico) REFERENCES Manejadores(IDTecnico)
+);

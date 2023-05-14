@@ -1,0 +1,23 @@
+body {
+    background-color: #C2D6D3;
+}
+
+#header {
+    border-radius: 10px;
+}
+
+input:invalid {
+    border-color: red;
+}
+
+input,
+input:valid {
+    border-color: #ccc;
+}
+
+#contenedorFormulario {
+    margin-top: 40px;
+    background-color: white;
+    border-radius: 40px;
+    height: 520px;
+}
