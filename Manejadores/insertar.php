@@ -4,12 +4,12 @@ $con=conectar();
 
 
 
-$IDManejadore=$_GET['id'];
+$IDTecnico=$_GET['id'];
 $Nombre=$_POST['Nombre'];
 $Tipo=$_POST['Tipo'];
 
 
-$sql="INSERT INTO Parques (IDManejadores, Nombre, Tipo) VALUES($IDManejadore,'$Nombre','$Tipo')";
+$sql="INSERT INTO Manejadores (IDTecnico, Nombre, Tipo) VALUES($IDTecnico,'$Nombre','$Tipo')";
 $query= mysqli_query($con,$sql);
 
 

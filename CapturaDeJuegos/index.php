@@ -2,18 +2,29 @@
     include("conexiones.php");
     $con=conectar();
 
-    $sql="SELECT *  FROM Parques";
+    $sql="SELECT *  FROM Juegos";
     $query=mysqli_query($con,$sql);
 
-    $sqlId="SELECT count(IDCampo) as id  FROM Parques";
+    $sqlId="SELECT count(IDJuego) as id  FROM Juegos";
     $queryId=mysqli_query($con,$sqlId);
 
 
 
     $id=mysqli_fetch_array($queryId);
-
+ 
     $sqlTemporada="SELECT *  FROM Temporadas";
     $queryTemporada=mysqli_query($con, $sqlTemporada);
+
+    $sqlParque="SELECT *  FROM Parques";
+    $queryParque=mysqli_query($con, $sqlParque);
+
+    $sqlEquipo="SELECT *  FROM Equipos";
+    $queryEquipo=mysqli_query($con, $sqlEquipo);
+
+    $sqlEquipoLocal="SELECT *  FROM Equipos";
+    $queryEquipoLocal=mysqli_query($con, $sqlEquipoLocal);
+    
+    
 
 
 
@@ -21,17 +32,17 @@
     /*$idAmpayer=date("y");
     $idAmpayer=$idAmpayer*100; */
 
-    $IDCampo=$id['id']+1;
+    $IDJuego=$id['id']+1;
 
-    $idA = strlen($IDCampo);
+    $idJ = strlen($IDJuego);
 
-    if($idA==1)
-        $IDCampo = "000$IDCampo";
-    elseif ($idA==2)
-        $IDCampo = "00$IDCampo";
-    elseif ($idA == 3)
-        $IDCampo = "0$IDCampo";
-    else ($IDCampo = $idA)
+    if($idJ==1)
+        $IDJuego = "000$IDJuego";
+    elseif ($idJ==2)
+        $IDJuego = "00$IDJuego";
+    elseif ($idJ == 3)
+        $IDJuego = "0$IDJuego";
+    else ($IDJuego = $idJ)
     //echo($idAfiliacion);
     
 ?>
@@ -59,7 +70,7 @@
     <div class="container" style="margin-top: 10px; " >
         <nav class="navbar navbar-expand-lg bg-body-tertiary" id="header">
             <div class="container-fluid">
-                <a class="navbar-brand" href="http://localhost:8080/programacion-web/CrudAPP-de-baseball/CapturaDeJuegos/">Liga MLB</a>
+                <a class="navbar-brand" href="#">Liga MLB</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
@@ -68,27 +79,30 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="http://localhost:8080/programacion-web/CrudAPP-de-baseball/CapturaDeJuegos/">Partidos</a>
+                            <a class="nav-link active" aria-current="page" href="http://localhost/partidos-app/Git/CrudAPP-de-baseball/CapturaDeJuegos/">Partidos</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="http://localhost:8080/programacion-web/CrudAPP-de-baseball/Equipos/">Equipos</a>
+                            <a class="nav-link" href="http://localhost/partidos-app/Git/CrudAPP-de-baseball/Equipos/">Equipos</a>
                         </li>
                         
                         <li class="nav-item">
-                            <a class="nav-link" href="http://localhost:8080/programacion-web/CrudAPP-de-baseball/Jugadores/">Jugadores</a>
+                            <a class="nav-link" href="http://localhost/partidos-app/Git/CrudAPP-de-baseball/Jugadores/">Jugadores</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="http://localhost:8080/programacion-web/CrudAPP-de-baseball/Ampayers/">Ampayers</a>
-                        </li>
-                         <li class="nav-item">
-                            <a class="nav-link" href="http://localhost:8080/programacion-web/CrudAPP-de-baseball/Parques/">Parques</a>
+                            <a class="nav-link" href="http://localhost/partidos-app/Git/CrudAPP-de-baseball/Ampayers/">Ampayers</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="http://localhost:8080/programacion-web/CrudAPP-de-baseball/Ligas/">Ligas</a>
+                            <a class="nav-link" href="http://localhost/partidos-app/Git/CrudAPP-de-baseball/Manejadores/">Manejadores</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="http://localhost:8080/programacion-web/CrudAPP-de-baseball/Temporadas/">Temporadas</a>
+                            <a class="nav-link" href="http://localhost/partidos-app/Git/CrudAPP-de-baseball/Parques/">Parques</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="http://localhost/partidos-app/Git/CrudAPP-de-baseball/Ligas/">Ligas</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="http://localhost/partidos-app/Git/CrudAPP-de-baseball/Temporadas/">Temporadas</a>
                         </li>
                     </ul>
                     <form class="d-flex" role="search">
@@ -100,18 +114,29 @@
         </nav>
     </div>
 
-    <div class="container" style="margin-top: 40px; background-color: white; border-radius: 40px; height:520px; " id="contenedorFormulario">
-        <form class="row g-3" action="insertar.php?id=<?php echo $IDCampo ?>" method="POST" id="formulario">
+    <div class="container" style="margin-top: 40px; background-color: white; border-radius: 40px; height:620px; " id="contenedorFormulario">
+        <form class="row g-3" action="insertar.php?id=<?php echo $IDJuego ?>" method="POST" id="formulario">
             <div class="col-md-2">
-                <label for="inputIDCampo" class="form-label"><strong>Nuevo Juego</strong></label>
-                <input type="text" class="form-control" id="inputIDCampo" name="IDCampo" required="true" readonly value="<?php echo($IDCampo); ?>">
+                <label for="inputIDJuego" class="form-label"><strong>Nuevo Juego</strong></label>
+                <input type="text" class="form-control" id="inputIDJuego" name="IDJuego" required="true" readonly value="<?php echo($IDJuego); ?>">
             </div>
+            
             <div class="col-md-5" >
                 <label for="inputTemporadas" class="form-label"><strong>Temporadas</strong></label>
                 <select id="inputIDTemporada" class="form-select" name="IDTemporada" required="true" >
                     <?php
                         while ($rowT=mysqli_fetch_array($queryTemporada)) {
-                            echo "<option>".$rowT['IDTemporada']." ".$rowT['IDLiga']." ".$rowT['Grupo']."</option>";
+                            echo "<option value=".$rowTL['IDTemporada'].">".$rowT['IDTemporada']." ".$rowT['IDLiga']." ".$rowT['Grupo']."</option>";
+                        }
+                    ?>
+                </select>
+            </div>
+            <div class="col-md-3" >
+                <label for="inputCampo" class="form-label"><strong>Campo</strong></label>
+                <select id="inputIDCampo" class="form-select" name="IDCampo" required="true" >
+                    <?php
+                        while ($rowT=mysqli_fetch_array($queryParque)) {
+                            echo "<option>".$rowT['IDCampo']."</option>";
                         }
                     ?>
                 </select>
@@ -146,6 +171,57 @@
                 </select>
             </div>
 
+            <div class="col-md-2">
+                <label for="inputFecha" class="form-label"><strong>Fecha</strong></label>
+                <input type="date" class="form-control" id="inputFecha" name="Fecha" required="true" >
+            </div>
+            <div class="col-md-2">
+                <label for="inputHora" class="form-label"><strong>Hora</strong></label>
+                <input type="time" class="form-control" id="inputHora" name="Hora" required="true" >
+            </div>
+            <div class="col-md-2">
+                <label for="inputFinal" class="form-label"><strong>Final</strong></label>
+                <input type="Text" class="form-control" id="inputFinal" name="Final" required="true" >
+            </div>
+            <div class="col-md-2">
+                <label for="inputInning" class="form-label"><strong>Innings</strong></label>
+                <input type="Number"  class="form-control" id="inputInning" name="Inning" required="true"  oninput="if( this.value.length > 2 )  this.value = this.value.slice(0,2)" max="12">
+            </div>
+
+            <div class="row" style="margin-top: 15px; ">
+                <div class="col-md-5" style="width: 300px;">
+                    <select id="inputEquipoVisitante" class="form-select" name="EquipoVisitante" required="true" >
+                        <option value="" disabled selected>Equipo Visitante</option>
+                        <?php
+                            while ($rowT=mysqli_fetch_array($queryEquipo)) {
+                                echo "<option value=".$rowT['IDEquipo'].">".$rowT['Nombre']."</option>";
+                            }
+                        ?>
+                    </select>
+                </div>
+            </div>
+
+            <div class="row" >
+                <div class="col-md-5" style="width: 300px; margin-top: 10px;">
+                    <select id="inputEquipoLocal" class="form-select" name="EquipoLocal" required="true" >
+                        <option value="" disabled selected>Equipo Local</option>
+                        <?php
+                            while ($rowTL=mysqli_fetch_array($queryEquipoLocal)) {
+                                echo "<option value=".$rowTL['IDEquipo'].">".$rowTL['Nombre']."</option>";
+                            }
+                        ?>
+                    </select>
+                </div>
+            </div>
+
+            <div class="col-md-1">
+                <label for="inputFinal" class="form-label"><strong>Ganó</strong></label>
+            </div>
+            <div class="col-md-2">
+                <input type="Text" class="form-control" id="inputFinal" name="Final" required="true" >
+            </div>
+            
+
             <div class="col-12" >
                 <button type="submit" class="btn btn-primary"><strong>Registrar</strong></button>
             </div>
@@ -153,14 +229,15 @@
         <br>
         <br>
         
-        <div class="col-md-12" style="height:200px; overflow: scroll; background-color: white; width: 750px;">
+        <div class="col-md-12" style="height:220px; overflow: scroll; background-color: white; width: 100%;">
             <table class="table" >
                 <thead class="table-success table-striped" >
                     <tr>
-                        <th style="background-color: white;">IDCampo</th>
-                        <th style="background-color: white;">Descripcion</th>
-                        <th style="background-color: white;">Editar</th>
-                        <th style="background-color: white;">Eliminar</th>
+                        <th style="background-color: white;">IDJuego</th>
+                        <th style="background-color: white;">Jornada</th>
+                        <th style="background-color: white;">Fecha</th>
+                        <th style="background-color: white;">Visitante</th>
+                        <th style="background-color: white;">Local</th>
                     </tr>
                 </thead>
                 

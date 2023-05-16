@@ -54,7 +54,7 @@
     <div class="container" style="margin-top: 10px;" >
         <nav class="navbar navbar-expand-lg bg-body-tertiary" id="header">
             <div class="container-fluid">
-                <a class="navbar-brand" href="http://localhost:8080/programacion-web/CrudAPP-de-baseball/CapturaDeJuegos/">Liga MLB</a>
+                <a class="navbar-brand" href="#">Liga MLB</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
@@ -62,28 +62,31 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="http://localhost:8080/programacion-web/CrudAPP-de-baseball/CapturaDeJuegos/">Partidos</a>
+                    <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="http://localhost/partidos-app/Git/CrudAPP-de-baseball/CapturaDeJuegos/">Partidos</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="http://localhost:8080/programacion-web/CrudAPP-de-baseball/Equipos/">Equipos</a>
+                            <a class="nav-link" href="http://localhost/partidos-app/Git/CrudAPP-de-baseball/Equipos/">Equipos</a>
                         </li>
                         
                         <li class="nav-item">
-                            <a class="nav-link" href="http://localhost:8080/programacion-web/CrudAPP-de-baseball/Jugadores/">Jugadores</a>
+                            <a class="nav-link" href="http://localhost/partidos-app/Git/CrudAPP-de-baseball/Jugadores/">Jugadores</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="http://localhost:8080/programacion-web/CrudAPP-de-baseball/Ampayers/">Ampayers</a>
-                        </li>
-                         <li class="nav-item">
-                            <a class="nav-link" href="http://localhost:8080/programacion-web/CrudAPP-de-baseball/Parques/">Parques</a>
+                            <a class="nav-link" href="http://localhost/partidos-app/Git/CrudAPP-de-baseball/Ampayers/">Ampayers</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="http://localhost:8080/programacion-web/CrudAPP-de-baseball/Ligas/">Ligas</a>
+                            <a class="nav-link" href="http://localhost/partidos-app/Git/CrudAPP-de-baseball/Manejadores/">Manejadores</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="http://localhost:8080/programacion-web/CrudAPP-de-baseball/Temporadas/">Temporadas</a>
+                            <a class="nav-link" href="http://localhost/partidos-app/Git/CrudAPP-de-baseball/Parques/">Parques</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="http://localhost/partidos-app/Git/CrudAPP-de-baseball/Ligas/">Ligas</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="http://localhost/partidos-app/Git/CrudAPP-de-baseball/Temporadas/">Temporadas</a>
                         </li>
                     </ul>
                     <form class="d-flex" role="search">

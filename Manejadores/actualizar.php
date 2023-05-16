@@ -4,7 +4,7 @@
 
     $id=$_GET['id'];
 
-    $sql="SELECT * FROM Parques WHERE IDCampo='$id'";
+    $sql="SELECT * FROM Manejadores WHERE IDTecnico='$id'";
     $query=mysqli_query($con,$sql);
 
     $row=mysqli_fetch_array($query);
@@ -25,10 +25,10 @@
 
 <body>
     <div class="container" style="margin-top: 10px;">
-        <form class="row g-3" action="insertar.php?id=<?php echo $IDManejador ?>" method="POST" id="formulario">
+        <form class="row g-3" action="update.php?id=<?php echo $IDTecnico ?>" method="POST" id="formulario">
             <div class="col-md-2">
-                <label for="inputIDManejador" class="form-label"><strong>IDManejador</strong></label>
-                <input type="text" class="form-control" id="inputIDManejador" name="IDManejador" required="true" readonly value="<?php echo($id); ?>">
+                <label for="inputIDTecnico" class="form-label"><strong>IDTecnico</strong></label>
+                <input type="text" class="form-control" id="inputIDTecnico" name="IDTecnico" required="true" readonly value="<?php echo($id); ?>">
             </div>
             <div class="col-md-5">
                 <label for="inputNombre" class="form-label"><strong>Nombre</strong></label>

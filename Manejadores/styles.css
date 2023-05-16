@@ -6,4 +6,11 @@ body {
     border-radius: 10px;
 }
 
-input:invalid { border-color: red; } input, input:valid { border-color: #ccc; }
+input:invalid {
+    border-color: red;
+}
+
+input,
+input:valid {
+    border-color: #ccc;
+}
