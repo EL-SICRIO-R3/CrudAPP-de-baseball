@@ -58,16 +58,15 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link rel="stylesheet" href="styles.css">
+    <script src="./validaciones.js"></script>
     
     
 </head>
 
 <style>
-    .clicked {
-        background-color: red; /* Cambia el color de fondo cuando se hace clic */
-        color: white; /* Cambia el color del texto cuando se hace clic */
-    }
+    
 </style>
+
 
 
 <body>
@@ -151,10 +150,10 @@
 
             <div class="col-12" style="height: 25px;  display: inline; margin-top: 50px;">
                 <label for="inputJornada" class="form-label"><strong>Jornada</strong></label>
-                <div class="btn-group me-2" role="group" aria-label="Second group">
+                <div class="btn-group me-2" role="group" aria-label="Botones">
                     <button type="button" class="btn btn-secondary" id="btnJ1" onclick="pb()">1</button>
-                    <button type="button" class="btn btn-secondary">2</button>
-                    <button type="button" class="btn btn-secondary">3</button>
+                    <button type="button" class="btn btn-secondary" onclick="pb2(this)">2</button>
+                    <button type="button" class="btn btn-secondary btnJ">3</button>
                     <button type="button" class="btn btn-secondary">4</button>
                     <button type="button" class="btn btn-secondary">5</button>
                     <button type="button" class="btn btn-secondary">6</button>

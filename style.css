@@ -1,0 +1,8 @@
+.clicked {
+    background-color: red; /* Cambia el color de fondo cuando se hace clic */
+    color: white; /* Cambia el color del texto cuando se hace clic */
+}
+.active {
+    background-color: red; /* Cambiar color de fondo cuando está seleccionado */
+    color: white; /* Cambiar color del texto cuando está seleccionado */
+}

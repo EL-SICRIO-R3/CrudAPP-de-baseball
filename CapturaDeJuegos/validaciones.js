@@ -95,6 +95,25 @@
             button.classList.add("clicked");
         });
     }
+
+    function pb2(button){
+        
+    }
+
+    var buttons = document.querySelectorAll(".myButton");
+
+    buttons.forEach(function(button) {
+        button.addEventListener("click", function() {
+        // Remover la clase "active" de todos los botones
+        buttons.forEach(function(btn) {
+            btn.classList.remove("active");
+        });
+        // Agregar la clase "active" al botón seleccionado
+        this.classList.add("active");
+        });
+    });
+
+    
     
 
   
