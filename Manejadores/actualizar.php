@@ -25,7 +25,7 @@
 
 <body>
     <div class="container" style="margin-top: 10px;">
-        <form class="row g-3" action="update.php?id=<?php echo $IDTecnico ?>" method="POST" id="formulario">
+        <form class="row g-3" action="update.php?id=<?php echo $row['IDTecnico'] ?>" method="POST" id="formulario">
             <div class="col-md-2">
                 <label for="inputIDTecnico" class="form-label"><strong>IDTecnico</strong></label>
                 <input type="text" class="form-control" id="inputIDTecnico" name="IDTecnico" required="true" readonly value="<?php echo($id); ?>">

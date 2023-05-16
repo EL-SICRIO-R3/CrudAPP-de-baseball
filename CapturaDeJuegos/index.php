@@ -57,15 +57,14 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="styles.css">
     <script src="./validaciones.js"></script>
+    <script src="../js/Validaciones.js"></script>
     
     
 </head>
 
-<style>
-    
-</style>
 
 
 
@@ -152,21 +151,21 @@
                 <label for="inputJornada" class="form-label"><strong>Jornada</strong></label>
                 <div class="btn-group me-2" role="group" aria-label="Botones">
                     <button type="button" class="btn btn-secondary" id="btnJ1" onclick="pb()">1</button>
-                    <button type="button" class="btn btn-secondary" onclick="pb2(this)">2</button>
-                    <button type="button" class="btn btn-secondary btnJ">3</button>
-                    <button type="button" class="btn btn-secondary">4</button>
-                    <button type="button" class="btn btn-secondary">5</button>
-                    <button type="button" class="btn btn-secondary">6</button>
-                    <button type="button" class="btn btn-secondary">7</button>
-                    <button type="button" class="btn btn-secondary">8</button>
-                    <button type="button" class="btn btn-secondary">9</button>
-                    <button type="button" class="btn btn-secondary">10</button>
-                    <button type="button" class="btn btn-secondary">11</button>
-                    <button type="button" class="btn btn-secondary">12</button>
-                    <button type="button" class="btn btn-secondary">13</button>
-                    <button type="button" class="btn btn-secondary">14</button>
-                    <button type="button" class="btn btn-secondary">15</button>
-                    <button type="button" class="btn btn-secondary">x</button>
+                    <button type="button" class="btn btn-secondary" id="btnJ2" onclick="pb2('btnJ2')">2</button>
+                    <button type="button" class="btn btn-secondary" id="btnJ3" onclick="pb2('btnJ3')">3</button>
+                    <button type="button" class="btn btn-secondary" id="btnJ4" onclick="pb2('btnJ4')">4</button>
+                    <button type="button" class="btn btn-secondary" id="btnJ5" onclick="pb2('btnJ5')">5</button>
+                    <button type="button" class="btn btn-secondary" id="btnJ6" onclick="pb2('btnJ6')">6</button>
+                    <button type="button" class="btn btn-secondary" id="btnJ7" onclick="pb2('btnJ7')">7</button>
+                    <button type="button" class="btn btn-secondary" id="btnJ8" onclick="pb2('btnJ8')">8</button>
+                    <button type="button" class="btn btn-secondary" id="btnJ9" onclick="pb2('btnJ9')">9</button>
+                    <button type="button" class="btn btn-secondary" id="btnJ10" onclick="pb2('btnJ10')">10</button>
+                    <button type="button" class="btn btn-secondary" id="btnJ11" onclick="pb2('btnJ11')">11</button>
+                    <button type="button" class="btn btn-secondary" id="btnJ12" onclick="pb2('btnJ12')">12</button>
+                    <button type="button" class="btn btn-secondary" id="btnJ13" onclick="pb2('btnJ13')">13</button>
+                    <button type="button" class="btn btn-secondary" id="btnJ14" onclick="pb2('btnJ14')">14</button>
+                    <button type="button" class="btn btn-secondary" id="btnJ15" onclick="pb2('btnJ15')">15</button>
+                    <button type="button" class="btn btn-secondary" id="btnJ16" onclick="pb2('btnJ16')">x</button>
                 </div>
             </div>
             
@@ -206,9 +205,9 @@
                 <label for="inputInning" class="form-label"><strong>Marcador</strong></label>
             </div>
 
-            <div class="col-md-12" style="margin-top: 80px">
-                <table class="table">
-                    <thead class="table-success table-striped">
+            <div class="col-md-12" style="margin-top: 80px; background-color: white;">
+                <table class="table" >
+                    <thead class="table-success table-striped" ">
                         <tr>
                             <th style="text-align: center;">Equipos</th>
                             <th style="text-align: center;">01</th>

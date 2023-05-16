@@ -92,26 +92,24 @@
     function pb(){
         var button = document.getElementById("btnJ1");
         button.addEventListener("click", function() {
-            button.classList.add("clicked");
+            
         });
+        button.classList.add("clicked");
     }
 
     function pb2(button){
-        
+        var btn = document.getElementById(button);
+        for (var i = 1; i <= 16; i++) {
+            var btnAux = document.getElementById("btnJ"+i);
+            btnAux.classList.remove("clicked");
+
+        }
+        var btn = document.getElementById(button);
+        btn.classList.add("clicked");
     }
 
-    var buttons = document.querySelectorAll(".myButton");
-
-    buttons.forEach(function(button) {
-        button.addEventListener("click", function() {
-        // Remover la clase "active" de todos los botones
-        buttons.forEach(function(btn) {
-            btn.classList.remove("active");
-        });
-        // Agregar la clase "active" al botón seleccionado
-        this.classList.add("active");
-        });
-    });
+    
+    
 
     
     

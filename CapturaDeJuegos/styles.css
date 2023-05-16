@@ -14,10 +14,7 @@ input,
 input:valid {
     border-color: #ccc;
 }
-button:active {
-    background-color: red; /* Cambia el color de fondo cuando se hace clic */
-    color: white; /* Cambia el color del texto cuando se hace clic */
-}
+
 
 #contenedorFormulario {
     margin-top: 40px;
