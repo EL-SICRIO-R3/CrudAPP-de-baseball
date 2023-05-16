@@ -90,7 +90,7 @@
             </div>
         </nav>
     </div>
-
+    
     <div class="container" style="margin-top: 10px;">
         <form class="row g-3" action="insertar.php?id=<?php echo $idTemporada ?>" method="POST" id="formulario">
             <div class="col-md-3">
@@ -147,7 +147,7 @@
         </form>
         <br>
         
-        <div class="col-md-12" style="height:300px; overflow: scroll;">
+        <div class="col-md-12" style="height:300px; overflow: auto;">
             <table class="table">
                 <thead class="table-success table-striped">
                     <tr>

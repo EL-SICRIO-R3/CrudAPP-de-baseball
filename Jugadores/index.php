@@ -165,7 +165,7 @@
         </form>
         <br>
         
-        <div class="col-md-12" style="height:255px; overflow: scroll;">
+        <div class="col-md-12" style="height:255px; overflow: auto;">
             <table class="table">
                 <thead class="table-success table-striped">
                     <tr>

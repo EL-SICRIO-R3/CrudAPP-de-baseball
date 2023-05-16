@@ -115,7 +115,7 @@
         <br>
         <br>
         
-        <div class="col-md-12" style="height:300px; overflow: scroll;">
+        <div class="col-md-12" style="height:300px; overflow: auto;">
             <table class="table">
                 <thead class="table-success table-striped">
                     <tr>

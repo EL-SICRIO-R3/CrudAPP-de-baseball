@@ -62,6 +62,12 @@
     
 </head>
 
+<style>
+    .clicked {
+        background-color: red; /* Cambia el color de fondo cuando se hace clic */
+        color: white; /* Cambia el color del texto cuando se hace clic */
+    }
+</style>
 
 
 <body>
@@ -114,7 +120,7 @@
         </nav>
     </div>
 
-    <div class="container" style="margin-top: 40px; background-color: white; border-radius: 40px; height:620px; " id="contenedorFormulario">
+    <div class="container" style="margin-top: 40px; background-color: white; border-radius: 40px; height:720px; " id="contenedorFormulario">
         <form class="row g-3" action="insertar.php?id=<?php echo $IDJuego ?>" method="POST" id="formulario">
             <div class="col-md-2">
                 <label for="inputIDJuego" class="form-label"><strong>Nuevo Juego</strong></label>
@@ -136,90 +142,264 @@
                 <select id="inputIDCampo" class="form-select" name="IDCampo" required="true" >
                     <?php
                         while ($rowT=mysqli_fetch_array($queryParque)) {
-                            echo "<option>".$rowT['IDCampo']."</option>";
+                            echo "<option value=".$rowT['IDCampo'].">".$rowT['Descripcion']."</option>";
                         }
                     ?>
                 </select>
             </div>
+            
 
-            <div class="col-12" style="height: 25px;  display: inline">
+            <div class="col-12" style="height: 25px;  display: inline; margin-top: 50px;">
                 <label for="inputJornada" class="form-label"><strong>Jornada</strong></label>
-                <div class="col-12" style="display: inline;  height: 25px; width: 25px; position: relative;" ><input type="button" value="01"></div>
-                <div class="col-12" style="display: inline;  height: 25px; width: 25px; position: relative;" ><input type="button" value="02"></div>
-                <div class="col-12" style="display: inline;  height: 25px; width: 25px; position: relative;" ><input type="button" value="03"></div>
-                <div class="col-12" style="display: inline;  height: 25px; width: 25px; position: relative;" ><input type="button" value="04"></div>
-                <div class="col-12" style="display: inline;  height: 25px; width: 25px; position: relative;" ><input type="button" value="05"></div>
-                <div class="col-12" style="display: inline;  height: 25px; width: 25px; position: relative;" ><input type="button" value="06"></div>
-                <div class="col-12" style="display: inline;  height: 25px; width: 25px; position: relative;" ><input type="button" value="07"></div>
-                <div class="col-12" style="display: inline;  height: 25px; width: 25px; position: relative;" ><input type="button" value="08"></div>
-                <div class="col-12" style="display: inline;  height: 25px; width: 25px; position: relative;" ><input type="button" value="09"></div>
-                <div class="col-12" style="display: inline;  height: 25px; width: 25px; position: relative;" ><input type="button" value="10"></div>
-                <div class="col-12" style="display: inline;  height: 25px; width: 25px; position: relative;" ><input type="button" value="11"></div>
-                <div class="col-12" style="display: inline;  height: 25px; width: 25px; position: relative;" ><input type="button" value="12"></div>
-                <div class="col-12" style="display: inline;  height: 25px; width: 25px; position: relative;" ><input type="button" value="13"></div>
-                <div class="col-12" style="display: inline;  height: 25px; width: 25px; position: relative;" ><input type="button" value="14"></div>
-                <div class="col-12" style="display: inline;  height: 25px; width: 25px; position: relative;" ><input type="button" value="15"></div>
-                <div class="col-12" style="display: inline;  height: 25px; width: 25px; position: relative;" ><input type="button" value="X"></div>
+                <div class="btn-group me-2" role="group" aria-label="Second group">
+                    <button type="button" class="btn btn-secondary" id="btnJ1" onclick="pb()">1</button>
+                    <button type="button" class="btn btn-secondary">2</button>
+                    <button type="button" class="btn btn-secondary">3</button>
+                    <button type="button" class="btn btn-secondary">4</button>
+                    <button type="button" class="btn btn-secondary">5</button>
+                    <button type="button" class="btn btn-secondary">6</button>
+                    <button type="button" class="btn btn-secondary">7</button>
+                    <button type="button" class="btn btn-secondary">8</button>
+                    <button type="button" class="btn btn-secondary">9</button>
+                    <button type="button" class="btn btn-secondary">10</button>
+                    <button type="button" class="btn btn-secondary">11</button>
+                    <button type="button" class="btn btn-secondary">12</button>
+                    <button type="button" class="btn btn-secondary">13</button>
+                    <button type="button" class="btn btn-secondary">14</button>
+                    <button type="button" class="btn btn-secondary">15</button>
+                    <button type="button" class="btn btn-secondary">x</button>
+                </div>
             </div>
             
-            <div class="col-2">
-                <label for="inputClima" class="form-label"><strong>Clima</strong></label>
-                
-                <select id="inputClima" class="form-select" name="Clima" required="true">
-                   <option>Despejado</option>
-                   <option>Soleado</option>
-                </select>
-            </div>
-
-            <div class="col-md-2">
-                <label for="inputFecha" class="form-label"><strong>Fecha</strong></label>
-                <input type="date" class="form-control" id="inputFecha" name="Fecha" required="true" >
-            </div>
-            <div class="col-md-2">
-                <label for="inputHora" class="form-label"><strong>Hora</strong></label>
-                <input type="time" class="form-control" id="inputHora" name="Hora" required="true" >
-            </div>
-            <div class="col-md-2">
-                <label for="inputFinal" class="form-label"><strong>Final</strong></label>
-                <input type="Text" class="form-control" id="inputFinal" name="Final" required="true" >
-            </div>
-            <div class="col-md-2">
-                <label for="inputInning" class="form-label"><strong>Innings</strong></label>
-                <input type="Number"  class="form-control" id="inputInning" name="Inning" required="true"  oninput="if( this.value.length > 2 )  this.value = this.value.slice(0,2)" max="12">
-            </div>
-
-            <div class="row" style="margin-top: 15px; ">
-                <div class="col-md-5" style="width: 300px;">
-                    <select id="inputEquipoVisitante" class="form-select" name="EquipoVisitante" required="true" >
-                        <option value="" disabled selected>Equipo Visitante</option>
-                        <?php
-                            while ($rowT=mysqli_fetch_array($queryEquipo)) {
-                                echo "<option value=".$rowT['IDEquipo'].">".$rowT['Nombre']."</option>";
-                            }
-                        ?>
+            <div class="row" style="margin-top: 50px;">
+                <div class="col-md-2">
+                    <label for="inputClima" class="form-label"><strong>Clima</strong></label>
+                    
+                    <select id="inputClima" class="form-select" name="Clima" required="true">
+                    <option>Despejado</option>
+                    <option>Soleado</option>
                     </select>
+                </div>
+
+                <div class="col-md-2" style="width: 150px">
+                    <label for="inputFecha" class="form-label"><strong>Fecha</strong></label>
+                    <input type="date" class="form-control" id="inputFecha" name="Fecha" required="true" >
+                </div>
+                <div class="col-md-2">
+                    <label for="inputHora" class="form-label"><strong>Hora</strong></label>
+                    <input type="time" class="form-control" id="inputHora" name="Hora" required="true" >
+                </div>
+                <div class="col-md-2" style="width: 150px;">
+                    <label for="inputFinal" class="form-label"><strong>Marcador Final</strong></label>
+                    <div class="row" style="width: 80px; position:relative; left: 30px">
+                        <input type="number" class="form-control" id="inputFinal" name="Final" required="true" >
+                        <input type="number" class="form-control" id="inputFinal" name="Final" required="true" >
+                    </div>
+                    
+                </div>
+                <div class="col-md-2">
+                    <label for="inputInning" class="form-label"><strong>Innings</strong></label>
+                    <input type="Number"  class="form-control" id="inputInning" name="Inning" required="true"  oninput="if( this.value.length > 2 )  this.value = this.value.slice(0,2)" max="12">
                 </div>
             </div>
 
-            <div class="row" >
-                <div class="col-md-5" style="width: 300px; margin-top: 10px;">
-                    <select id="inputEquipoLocal" class="form-select" name="EquipoLocal" required="true" >
-                        <option value="" disabled selected>Equipo Local</option>
-                        <?php
-                            while ($rowTL=mysqli_fetch_array($queryEquipoLocal)) {
-                                echo "<option value=".$rowTL['IDEquipo'].">".$rowTL['Nombre']."</option>";
-                            }
-                        ?>
-                    </select>
-                </div>
+            <div class="row">
+                <label for="inputInning" class="form-label"><strong>Marcador</strong></label>
             </div>
 
-            <div class="col-md-1">
-                <label for="inputFinal" class="form-label"><strong>Ganó</strong></label>
+            <div class="col-md-12" style="margin-top: 80px">
+                <table class="table">
+                    <thead class="table-success table-striped">
+                        <tr>
+                            <th style="text-align: center;">Equipos</th>
+                            <th style="text-align: center;">01</th>
+                            <th style="text-align: center;">02</th>
+                            <th style="text-align: center;">03</th>
+                            <th style="text-align: center;">04</th>
+                            <th style="text-align: center;">05</th>
+                            <th style="text-align: center;">06</th>
+                            <th style="text-align: center;">07</th>
+                            <th style="text-align: center;">08</th>
+                            <th style="text-align: center;">09</th>
+                            <th style="text-align: center;">10</th>
+                            <th style="text-align: center;">C</th>
+                            <th style="text-align: center;">H</th>
+                            <th style="text-align: center;">E</th>
+                        </tr>
+                    </thead>
+                    
+                    <tbody>
+                        <tr>
+                            <th>
+                                <select id="inputEquipoVisitante" class="form-select" name="EquipoVisitante" required="true" >
+                                    <option value="" disabled selected>Equipo Visitante</option>
+                                    <?php
+                                        while ($rowT=mysqli_fetch_array($queryEquipo)) {
+                                            echo "<option value=".$rowT['IDEquipo'].">".$rowT['Nombre']."</option>";
+                                        }
+                                    ?>
+                                </select>
+                            </th>
+                            <th style="width: 60px; ">
+                                <div class="col-md-2" style="width: 60px;">
+                                    <input type="Number"  class="form-control" id="inputInning" name="Inning11" required="true"  >
+                                </div>
+                            </th>
+                            <th style="width: 60px;">
+                                <div class="col-md-2" style="width: 60px;">
+                                    <input type="Number"  class="form-control" id="inputInning" name="Inning12" required="true"  >
+                                </div>
+                            </th>
+                            <th style="width: 60px;">
+                                <div class="col-md-2" style="width: 60px;">
+                                    <input type="Number"  class="form-control" id="inputInning" name="Inning13" required="true"  >
+                                </div>
+                            </th>
+                            <th style="width: 60px;">
+                                <div class="col-md-2" style="width: 60px;">
+                                    <input type="Number"  class="form-control" id="inputInning" name="Inning14" required="true"  >
+                                </div>
+                            </th>
+                            <th style="width: 60px;">
+                                <div class="col-md-2" style="width: 60px;">
+                                    <input type="Number"  class="form-control" id="inputInning" name="Inning15" required="true"  >
+                                </div>
+                            </th>
+                            <th style="width: 60px;">
+                                <div class="col-md-2" style="width: 60px;">
+                                    <input type="Number"  class="form-control" id="inputInning" name="Inning16" required="true"  >
+                                </div>
+                            </th>
+                            <th style="width: 60px;">
+                                <div class="col-md-2" style="width: 60px;">
+                                    <input type="Number"  class="form-control" id="inputInning" name="Inning17" required="true"  >
+                                </div>
+                            </th>
+                            <th style="width: 60px;">
+                                <div class="col-md-2" style="width: 60px;">
+                                    <input type="Number"  class="form-control" id="inputInning" name="Inning18" required="true"  >
+                                </div>
+                            </th>
+                            <th style="width: 60px;">
+                                <div class="col-md-2" style="width: 60px;">
+                                    <input type="Number"  class="form-control" id="inputInning" name="Inning19" required="true"  >
+                                </div>
+                            </th>
+                            <th style="width: 60px;">
+                                <div class="col-md-2" style="width: 60px;">
+                                    <input type="Number"  class="form-control" id="inputInning" name="Inning110" required="true"  >
+                                </div>
+                            </th>
+                            <th style="width: 60px;">
+                                <div class="col-md-2" style="width: 60px;">
+                                    <input type="Number"  class="form-control" id="inputInning" name="Inning1C" required="true"  >
+                                </div>
+                            </th>
+                            <th style="width: 60px;">
+                                <div class="col-md-2" style="width: 60px;">
+                                    <input type="Number"  class="form-control" id="inputInning" name="Inning1H" required="true"  >
+                                </div>
+                            </th>
+                            <th style="width: 60px;">
+                                <div class="col-md-2" style="width: 60px;">
+                                    <input type="Number"  class="form-control" id="inputInning" name="Inning1E" required="true"  >
+                                </div>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>
+                                <select id="inputEquipoLocal" class="form-select" name="EquipoLocal" required="true" >
+                                    <option value="" disabled selected>Equipo Local</option>
+                                    <?php
+                                        while ($rowTL=mysqli_fetch_array($queryEquipoLocal)) {
+                                            echo "<option value=".$rowTL['IDEquipo'].">".$rowTL['Nombre']."</option>";
+                                        }
+                                    ?>
+                                </select>
+                            </th>
+                            <th style="width: 60px;">
+                                <div class="col-md-2" style="width: 60px;">
+                                    <input type="Number"  class="form-control" id="inputInning" name="Inning21" required="true"  >
+                                </div>
+                            </th>
+                            <th style="width: 60px;">
+                                <div class="col-md-2" style="width: 60px;">
+                                    <input type="Number"  class="form-control" id="inputInning" name="Inning22" required="true"  >
+                                </div>
+                            </th>
+                            <th style="width: 60px;">
+                                <div class="col-md-2" style="width: 60px;">
+                                    <input type="Number"  class="form-control" id="inputInning" name="Inning23" required="true"  >
+                                </div>
+                            </th>
+                            <th style="width: 60px;">
+                                <div class="col-md-2" style="width: 60px;">
+                                    <input type="Number"  class="form-control" id="inputInning" name="Inning24" required="true"  >
+                                </div>
+                            </th>
+                            <th style="width: 60px;">
+                                <div class="col-md-2" style="width: 60px;">
+                                    <input type="Number"  class="form-control" id="inputInning" name="Inning25" required="true"  >
+                                </div>
+                            </th>
+                            <th style="width: 60px;">
+                                <div class="col-md-2" style="width: 60px;">
+                                    <input type="Number"  class="form-control" id="inputInning" name="Inning26" required="true"  >
+                                </div>
+                            </th>
+                            <th style="width: 60px;">
+                                <div class="col-md-2" style="width: 60px;">
+                                    <input type="Number"  class="form-control" id="inputInning" name="Inning27" required="true"  >
+                                </div>
+                            </th>
+                            <th style="width: 60px;">
+                                <div class="col-md-2" style="width: 60px;">
+                                    <input type="Number"  class="form-control" id="inputInning" name="Inning28" required="true"  >
+                                </div>
+                            </th>
+                            <th style="width: 60px;">
+                                <div class="col-md-2" style="width: 60px;">
+                                    <input type="Number"  class="form-control" id="inputInning" name="Inning29" required="true"  >
+                                </div>
+                            </th>
+                            <th style="width: 60px;">
+                                <div class="col-md-2" style="width: 60px;">
+                                    <input type="Number"  class="form-control" id="inputInning" name="Inning210" required="true"  >
+                                </div>
+                            </th>
+                            <th style="width: 60px;">
+                                <div class="col-md-2" style="width: 60px;">
+                                    <input type="Number"  class="form-control" id="inputInning" name="Inning2C" required="true"  >
+                                </div>
+                            </th>
+                            <th style="width: 60px;">
+                                <div class="col-md-2" style="width: 60px;">
+                                    <input type="Number"  class="form-control" id="inputInning" name="Inning2H" required="true"  >
+                                </div>
+                            </th>
+                            <th style="width: 60px;">
+                                <div class="col-md-2" style="width: 60px;">
+                                    <input type="Number"  class="form-control" id="inputInning" name="Inning2E" required="true"  >
+                                </div>
+                            </th>
+                        </tr>
+                    </tbody>
+
+                    
+                </table>
             </div>
-            <div class="col-md-2">
-                <input type="Text" class="form-control" id="inputFinal" name="Final" required="true" >
-            </div>
+
+
+
+            <div class="row">
+                <div class="col-md-1" style="width: 55px;">
+                    <label for="inputFinal" class="form-label"><strong>Ganó:</strong></label>
+                </div>
+                <div class="col-md-2">
+                    <input type="Text" class="form-control" id="inputFinal" name="Final" required="true" readonly>
+                </div>
+            </div>                           
+            
             
 
             <div class="col-12" >
@@ -229,7 +409,7 @@
         <br>
         <br>
         
-        <div class="col-md-12" style="height:220px; overflow: scroll; background-color: white; width: 100%;">
+        <div class="col-md-12" style="height:220px; overflow: auto; background-color: white; width: 100%; border-radius: 20px">
             <table class="table" >
                 <thead class="table-success table-striped" >
                     <tr>
