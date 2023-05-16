@@ -1,8 +1,10 @@
 .clicked {
-    background-color: #5D8CF7; /* Cambia el color de fondo cuando se hace clic */
-    color: white; /* Cambia el color del texto cuando se hace clic */
+    background-color: #C2D6D3; /* Cambia el color de fondo cuando se hace clic */
+    color: black;
 }
+
 .active {
     background-color: #AFBFBD;
     border-radius: 10px;
+    color: white;
 }

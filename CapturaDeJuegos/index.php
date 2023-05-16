@@ -150,7 +150,7 @@
             <div class="col-12" style="height: 25px;  display: inline; margin-top: 50px;">
                 <label for="inputJornada" class="form-label"><strong>Jornada</strong></label>
                 <div class="btn-group me-2" role="group" aria-label="Botones">
-                    <button type="button" class="btn btn-secondary" id="btnJ1" onclick="pb()">1</button>
+                    <button type="button" class="btn btn-secondary" id="btnJ1" onclick="pb2('btnJ1')">1</button>
                     <button type="button" class="btn btn-secondary" id="btnJ2" onclick="pb2('btnJ2')">2</button>
                     <button type="button" class="btn btn-secondary" id="btnJ3" onclick="pb2('btnJ3')">3</button>
                     <button type="button" class="btn btn-secondary" id="btnJ4" onclick="pb2('btnJ4')">4</button>
@@ -201,11 +201,11 @@
                 </div>
             </div>
 
-            <div class="row">
+            <div class="row" style="height: 20px;  margin-top: 50px; text-align: center;">
                 <label for="inputInning" class="form-label"><strong>Marcador</strong></label>
             </div>
 
-            <div class="col-md-12" style="margin-top: 80px; background-color: white;">
+            <div class="col-md-12" style="margin-top: 15px; background-color: white;">
                 <table class="table" >
                     <thead class="table-success table-striped" ">
                         <tr>

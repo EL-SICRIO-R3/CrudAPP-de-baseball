@@ -89,13 +89,7 @@
         console.log(abreviacion);*/
     }
 
-    function pb(){
-        var button = document.getElementById("btnJ1");
-        button.addEventListener("click", function() {
-            
-        });
-        button.classList.add("clicked");
-    }
+    
 
     function pb2(button){
         var btn = document.getElementById(button);
@@ -106,6 +100,7 @@
         }
         var btn = document.getElementById(button);
         btn.classList.add("clicked");
+        
     }
 
     
