@@ -46,6 +46,12 @@ input:valid {
     width: 100px;
     text-align: center;
 }
+.ampayerHome{
+    /*background-color: red;*/
+    width: 450px;
+    position: relative;
+    top: 10px;
+}
 #maradorFinal{
     /*background-color: blue;*/
     position: relative;
@@ -75,6 +81,8 @@ input:valid {
     width: 140px;
     text-align: center;
 }
+
+
 img{
     height: 200px;
     width: 200px;

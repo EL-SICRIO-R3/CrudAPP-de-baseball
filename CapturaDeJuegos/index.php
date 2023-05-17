@@ -23,6 +23,12 @@
 
     $sqlEquipoLocal="SELECT *  FROM Equipos";
     $queryEquipoLocal=mysqli_query($con, $sqlEquipoLocal);
+
+    $sqlAmpayerHome="SELECT *  FROM Ampayers";
+    $queryAmpayerHome=mysqli_query($con, $sqlAmpayerHome);
+
+    $sqlAmpayerBases="SELECT *  FROM Ampayers";
+    $queryAmpayerBases=mysqli_query($con, $sqlAmpayerBases);
     
     
 
@@ -118,7 +124,7 @@
         </nav>
     </div>
 
-    <div class="container" style="margin-top: 40px; background-color: white; border-radius: 40px; height:780px; " id="contenedorFormulario">
+    <div class="container" style="margin-top: 40px; background-color: white; border-radius: 40px; height:850px; " id="contenedorFormulario">
         <form class="row g-3" action="insertar.php?id=<?php echo $IDJuego ?>" method="POST" id="formulario">
             <div class="col-md-2" style="width: 150px;">
                 <label for="inputIDJuego" class="form-label"><strong>Nuevo Juego</strong></label>
@@ -407,17 +413,60 @@
 
             <div class="row">
                 <div class="col-md-1" style="width: 55px;">
-                    <label for="inputFinal" class="form-label"><strong>Ganó:</strong></label>
+                    <label for="inputGano" class="form-label"><strong>Ganó:</strong></label>
                 </div>
-                <div class="col-md-2">
-                    <input type="Text" class="form-control" id="inputFinal" name="Final" required="true" readonly>
+                <div class="col-md-3">
+                    <input type="Text" class="form-control" id="inputGano" name="Gano" required="true" readonly>
                 </div>
-            </div>                           
-            
-            
+                <div class="col-md-1" style="width: 55px;">
+                    <label for="inputPerdio" class="form-label"><strong>Perdió:</strong></label>
+                </div>
+                <div class="col-md-3">
+                    <input type="Text" class="form-control" id="inputPerdio" name="Perdio" required="true" readonly>
+                </div>
+                <div class="col-md-1" style="width: 55px;">
+                    <label for="inputSalvo" class="form-label"><strong>Salvó:</strong></label>
+                </div>
+                <div class="col-md-3">
+                    <input type="Text" class="form-control" id="inputSalvo" name="Salvo" required="true" readonly>
+                </div>
+                <div class="col-md-6">
+                    <div class="row ampayerHome">
+                        <div class="col-md-5" >
+                            <label for="inputAmpayerHome" class="form-label"><strong>Ampayer de Home:</strong></label>
+                        </div>
+                        <div class="col-md-7" style="position: relative; right: 0%;">
+                            <select id="inputEquipoLocal" class="form-select" name="EquipoLocal" required="true" >
+                                <?php
+                                    while ($rowAH=mysqli_fetch_array($queryAmpayerHome)) {
+                                        echo "<option value=".$rowAH['IDAmpayer'].">".$rowAH['Nombre']."</option>";
+                                    }
+                                ?>
+                            </select>
+                        </div>
+                        <div class="col-md-5" >
+                            <label for="inputAmpayerBases" class="form-label"><strong>Ampayer en Bases:</strong></label>
+                        </div>
+                        <div class="col-md-7" style="position: relative; right: 0%;">
+                            <select id="inputEquipoLocal" class="form-select" name="EquipoLocal" required="true" >
+                                <?php
+                                    while ($rowAB=mysqli_fetch_array($queryAmpayerBases)) {
+                                        echo "<option value=".$rowAB['IDAmpayer'].">".$rowAB['Nombre']."</option>";
+                                    }
+                                ?>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-            <div class="col-12" >
-                <button type="submit" class="btn btn-primary"><strong>Registrar</strong></button>
+            <div class="row">
+                
+            </div>
+
+
+            <div class="col-12" id="btnRegistrar">
+                <button type="submit" class="btn btn-primary " id="btnRegistrar1"><strong>Registrar</strong></button>
             </div>
         </form>
         <br>
