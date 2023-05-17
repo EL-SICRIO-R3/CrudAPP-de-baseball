@@ -23,3 +23,59 @@ input:valid {
     height: 520px;
     
 }
+
+.divLogo{
+    /*background-color: red;*/
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    left: 70px;
+}
+.imgEquipoLocal{
+    height: 200px;
+    width: 200px;
+}
+.imgEquipoVisitante{
+    height: 200px;
+    width: 200px;
+}
+.lblVS{
+    height: 100px;
+    width: 100px;
+    text-align: center;
+}
+#maradorFinal{
+    /*background-color: blue;*/
+    position: relative;
+    left: 100px;
+    width: 140px;
+    text-align: center;
+    align-items: center;
+}
+#inputFinalLocal{
+    width: 70px;
+    position: relative;
+    left: 25%;
+}
+#inputFinalVisitante{
+    width: 70px;
+    position: relative;
+    left: 25%;
+}
+#inputInnings{
+    width: 70px;
+    position: relative;
+    left: 28%;
+}
+#innings{
+    position: relative;
+    /*background-color: blue;*/
+    width: 140px;
+    text-align: center;
+}
+img{
+    height: 200px;
+    width: 200px;
+}

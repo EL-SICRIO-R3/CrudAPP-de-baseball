@@ -118,14 +118,14 @@
         </nav>
     </div>
 
-    <div class="container" style="margin-top: 40px; background-color: white; border-radius: 40px; height:720px; " id="contenedorFormulario">
+    <div class="container" style="margin-top: 40px; background-color: white; border-radius: 40px; height:780px; " id="contenedorFormulario">
         <form class="row g-3" action="insertar.php?id=<?php echo $IDJuego ?>" method="POST" id="formulario">
-            <div class="col-md-2">
+            <div class="col-md-2" style="width: 150px;">
                 <label for="inputIDJuego" class="form-label"><strong>Nuevo Juego</strong></label>
                 <input type="text" class="form-control" id="inputIDJuego" name="IDJuego" required="true" readonly value="<?php echo($IDJuego); ?>">
             </div>
             
-            <div class="col-md-5" >
+            <div class="col-md-2" >
                 <label for="inputTemporadas" class="form-label"><strong>Temporadas</strong></label>
                 <select id="inputIDTemporada" class="form-select" name="IDTemporada" required="true" >
                     <?php
@@ -145,9 +145,27 @@
                     ?>
                 </select>
             </div>
+            <div class="col-md-2">
+                <label for="inputClima" class="form-label"><strong>Clima</strong></label>
+                    
+                <select id="inputClima" class="form-select" name="Clima" required="true">
+                <option>Despejado</option>
+                <option>Soleado</option>
+                </select>
+            </div>
+
+            <div class="col-md-2" style="width: 150px">
+                <label for="inputFecha" class="form-label"><strong>Fecha</strong></label>
+                <input type="date" class="form-control" id="inputFecha" name="Fecha" required="true" >
+            </div>
+            <div class="col-md-2">
+                <label for="inputHora" class="form-label"><strong>Hora</strong></label>
+                <input type="time" class="form-control" id="inputHora" name="Hora" required="true" >
+            </div>
+            
             
 
-            <div class="col-12" style="height: 25px;  display: inline; margin-top: 50px;">
+            <div class="col-12" style="height: 25px;  display: inline; margin-top: 50px; ">
                 <label for="inputJornada" class="form-label"><strong>Jornada</strong></label>
                 <div class="btn-group me-2" role="group" aria-label="Botones">
                     <button type="button" class="btn btn-secondary" id="btnJ1" onclick="pb2('btnJ1')">1</button>
@@ -169,39 +187,37 @@
                 </div>
             </div>
             
-            <div class="row" style="margin-top: 50px;">
-                <div class="col-md-2">
-                    <label for="inputClima" class="form-label"><strong>Clima</strong></label>
-                    
-                    <select id="inputClima" class="form-select" name="Clima" required="true">
-                    <option>Despejado</option>
-                    <option>Soleado</option>
-                    </select>
+            <div class="row divLogo" style="margin-top: 50px; ">
+                
+                <div class="col-md-3 imgEquipoLocal" style="">
+                    <img src="../img/logos/tomateros.png" alt="">
                 </div>
-
-                <div class="col-md-2" style="width: 150px">
-                    <label for="inputFecha" class="form-label"><strong>Fecha</strong></label>
-                    <input type="date" class="form-control" id="inputFecha" name="Fecha" required="true" >
+                <div class="col-md-3 lblVS">
+                    <h1><strong>VS</strong></h1>
                 </div>
-                <div class="col-md-2">
-                    <label for="inputHora" class="form-label"><strong>Hora</strong></label>
-                    <input type="time" class="form-control" id="inputHora" name="Hora" required="true" >
+                <div class="col-md-3 imgEquipoVisitante">
+                    <img src="../img/logos/venados.png" alt="">
                 </div>
-                <div class="col-md-2" style="width: 150px;">
-                    <label for="inputFinal" class="form-label"><strong>Marcador Final</strong></label>
-                    <div class="row" style="width: 80px; position:relative; left: 30px">
-                        <input type="number" class="form-control" id="inputFinal" name="Final" required="true" >
-                        <input type="number" class="form-control" id="inputFinal" name="Final" required="true" >
+                <div class="col-md-4 marcadorFinal"  id="maradorFinal">
+                    <div class="col-md-4 " style="">
+                        <label for="inputFinal" class="form-label" style="width: 140px;"><strong>Marcador Final</strong></label>
+                        <div class="row" style="width: 80px; position:relative; left: 30px">
+                            <input type="number" class="form-control" id="inputFinalLocal" name="Final" required="true" >
+                            <input type="number" class="form-control" id="inputFinalVisitante" name="Final" required="true" >
+                        </div>
+                        
                     </div>
-                    
+                    <div class="col-md-2" id="innings">
+                        <label for="inputInning" class="form-label"><strong>Innings</strong></label>
+                        <input type="Number"  class="form-control" id="inputInnings" name="Inning" required="true"  oninput="if( this.value.length > 2 )  this.value = this.value.slice(0,2)" max="12">
+                    </div>
                 </div>
-                <div class="col-md-2">
-                    <label for="inputInning" class="form-label"><strong>Innings</strong></label>
-                    <input type="Number"  class="form-control" id="inputInning" name="Inning" required="true"  oninput="if( this.value.length > 2 )  this.value = this.value.slice(0,2)" max="12">
-                </div>
+                
+                
+                
             </div>
 
-            <div class="row" style="height: 20px;  margin-top: 50px; text-align: center;">
+            <div class="row" style="height: 20px;  margin-top: 40px; text-align: center;">
                 <label for="inputInning" class="form-label"><strong>Marcador</strong></label>
             </div>
 
