@@ -175,7 +175,7 @@
             
 
             <div class="col-12" style="height: 25px;  display: inline; margin-top: 50px; ">
-                <label for="inputJornada" class="form-label"><strong>Jornada</strong></label>
+                <label for="inputJornada" class="form-label" name="Jornada" value="1"><strong>Jornada</strong></label>
                 <div class="btn-group me-2" role="group" aria-label="Botones">
                     <button type="button" class="btn btn-secondary" id="btnJ1" onclick="pb2('btnJ1')">1</button>
                     <button type="button" class="btn btn-secondary" id="btnJ2" onclick="pb2('btnJ2')">2</button>
@@ -193,7 +193,6 @@
                     <button type="button" class="btn btn-secondary" id="btnJ14" onclick="pb2('btnJ14')">14</button>
                     <button type="button" class="btn btn-secondary" id="btnJ15" onclick="pb2('btnJ15')">15</button>
                     <button type="button" class="btn btn-secondary" id="btnJ16" onclick="pb2('btnJ16')">x</button>
-                    <label for="inputJornada" class="form-label">J</label>
                 </div>
             </div>
             

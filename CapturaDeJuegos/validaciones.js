@@ -86,6 +86,8 @@
 
     function pb2(button){
         var btn = document.getElementById(button);
+        var lblJornada=document.getElementById("Jornada")
+        console.log(lblJornada);
         for (var i = 1; i <= 16; i++) {
             var btnAux = document.getElementById("btnJ"+i);
             btnAux.classList.remove("clicked");

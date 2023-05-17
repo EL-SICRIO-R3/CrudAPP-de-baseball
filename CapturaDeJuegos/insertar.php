@@ -17,13 +17,13 @@ $Final1=$_POST['Final1'];
 $Final1=$_POST['Final2'];
 $IDAviso=$_POST['Descripcion'];
 
-
 $Final="$Final1+"-"+$Final2"
-
 
 $sqlJuegos="INSERT INTO Juegos (IDJuego, IDtemporada, Jornada, IDCampo, Fecha, Hora, Clima, IDEquipoVisitante, IDEquipoLocal, Final, IDAviso, Inning) 
 VALUES($IDJuego,$IDTemporada, $Jornada, $IDCampo, '$Fecha', '$Hora', '$Clima', $IDEquipoVisitante, $IDEquipoLocal, '$Final', $IDAviso)";
 $queryJuegos= mysqli_query($con,$sqlJuegos);
+
+
 
 $Innings=$_POST['Descripcion'];
 $EntradaAlta=$_POST['Inning1E'];
@@ -45,6 +45,9 @@ $queryAmpayersJuegoHome= mysqli_query($con,$sqlAmpayersJuegoHome);
 
 $sqlAmpayersJuegoBases="INSERT INTO AmpayersJuego (IDJuego, IDAmpayer, Ubicacion) VALUES ($IDJuego, $AmpayerBase, 'Bases')"
 $queryAmpayersJuegoBases= mysqli_query($con,$sqlAmpayersJuegoBases);
+
+
+
 
 if($query){
     Header("Location: index.php");
