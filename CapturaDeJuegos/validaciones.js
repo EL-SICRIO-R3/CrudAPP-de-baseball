@@ -79,14 +79,7 @@
     }
 
     function pruebas(input){
-        /*console.log(input);
-        console.log(input.value);
-        var abreviacion=document.getElementById('inputAbreviacion');
         
-        abreviacion=input.value;
-        //abreviacion=input.placeholder;
-        document.getElementById('inputAbreviacion').placeholder=abreviacion;
-        console.log(abreviacion);*/
     }
 
     

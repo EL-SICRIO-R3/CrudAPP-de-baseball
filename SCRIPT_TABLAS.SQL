@@ -98,3 +98,26 @@ CREATE TABLE Juegos(
   FOREIGN KEY(IDEquipoLocal) REFERENCES Equipos(IDEquipo),
   FOREIGN KEY(IDAviso) REFERENCES Avisos(IDAviso)
 );
+
+CREATE TABLE Entradas(
+  IDJuego int,
+  IDInning int,
+  CarrerasLocal int,
+  CarrerasVisitante int,
+  EntradaAlta int,
+  EntradaBaja int,
+  CarrerasAlta int,
+  CarrerasBaja int,
+
+  FOREIGN KEY(IDJuego) REFERENCES Juegos(IDJuego)
+
+);
+
+CREATE TABLE AmpayersJuego(
+  IDJuego int,
+  IDAmpayer int,
+  Ubicacion varchar(150),
+
+  FOREIGN KEY(IDJuego) REFERENCES Juegos(IDJuego),
+  FOREIGN KEY(IDAmpayer) REFERENCES Ampayers(IDAmpayer)
+);

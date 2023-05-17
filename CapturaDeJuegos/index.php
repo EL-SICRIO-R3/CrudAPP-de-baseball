@@ -29,6 +29,9 @@
 
     $sqlAmpayerBases="SELECT *  FROM Ampayers";
     $queryAmpayerBases=mysqli_query($con, $sqlAmpayerBases);
+
+    $sqlAviso="SELECT *  FROM Avisos";
+    $queryAviso=mysqli_query($con, $sqlAviso);
     
     
 
@@ -190,6 +193,7 @@
                     <button type="button" class="btn btn-secondary" id="btnJ14" onclick="pb2('btnJ14')">14</button>
                     <button type="button" class="btn btn-secondary" id="btnJ15" onclick="pb2('btnJ15')">15</button>
                     <button type="button" class="btn btn-secondary" id="btnJ16" onclick="pb2('btnJ16')">x</button>
+                    <label for="inputJornada" class="form-label">J</label>
                 </div>
             </div>
             
@@ -208,8 +212,8 @@
                     <div class="col-md-4 " style="">
                         <label for="inputFinal" class="form-label" style="width: 140px;"><strong>Marcador Final</strong></label>
                         <div class="row" style="width: 80px; position:relative; left: 30px">
-                            <input type="number" class="form-control" id="inputFinalLocal" name="Final" required="true" >
-                            <input type="number" class="form-control" id="inputFinalVisitante" name="Final" required="true" >
+                            <input type="number" class="form-control" id="inputFinalLocal" name="Final1" required="true" >
+                            <input type="number" class="form-control" id="inputFinalVisitante" name="Final2" required="true" >
                         </div>
                         
                     </div>
@@ -435,34 +439,47 @@
                         <div class="col-md-5" >
                             <label for="inputAmpayerHome" class="form-label"><strong>Ampayer de Home:</strong></label>
                         </div>
-                        <div class="col-md-7" style="position: relative; right: 0%;">
-                            <select id="inputEquipoLocal" class="form-select" name="EquipoLocal" required="true" >
+                        <div class="col-md-7" >
+                            <select id="inputEquipoLocal" class="form-select" name="AmpayerHome" required="true" >
+                                <option value="" disabled selected>Ampayer Home</option>
                                 <?php
                                     while ($rowAH=mysqli_fetch_array($queryAmpayerHome)) {
-                                        echo "<option value=".$rowAH['IDAmpayer'].">".$rowAH['Nombre']."</option>";
+                                        echo "<option value=".$rowAH['IDAmpayer'].">".$rowAH['Abreviacion']."</option>";
                                     }
                                 ?>
                             </select>
                         </div>
-                        <div class="col-md-5" >
+                        <div class="col-md-5" style="position: relative; top: 10px;">
                             <label for="inputAmpayerBases" class="form-label"><strong>Ampayer en Bases:</strong></label>
                         </div>
-                        <div class="col-md-7" style="position: relative; right: 0%;">
-                            <select id="inputEquipoLocal" class="form-select" name="EquipoLocal" required="true" >
+                        <div class="col-md-7" style="position: relative; right: 0%; top: 10px;">
+                            <select id="inputEquipoLocal" class="form-select" name="AmpayerBase" required="true" >
+                                <option value="" disabled selected>Ampayer Base</option>
                                 <?php
                                     while ($rowAB=mysqli_fetch_array($queryAmpayerBases)) {
-                                        echo "<option value=".$rowAB['IDAmpayer'].">".$rowAB['Nombre']."</option>";
+                                        echo "<option value=".$rowAB['IDAmpayer'].">".$rowAB['Abreviacion']."</option>";
                                     }
                                 ?>
                             </select>
                         </div>
                     </div>
                 </div>
+
+                <div class="col-md-1" style="width: 55px; position: relative; top: 20px;">
+                    <label for="inputSalvo" class="form-label"><strong>Aviso:</strong></label>
+                </div>
+                <div class="col-md-3" style="position: relative; top: 20px;">
+                    <select id="inputEquipoLocal" class="form-select" name="EquipoLocal" required="true" >
+                        <option value="" disabled selected>Aviso</option>
+                        <?php
+                            while ($rowAV=mysqli_fetch_array($queryAviso)) {
+                                echo "<option value=".$rowAB['IDAviso'].">".$rowAV['Aviso']."</option>";
+                            }
+                        ?>
+                    </select>
+                </div>
             </div>
 
-            <div class="row">
-                
-            </div>
 
 
             <div class="col-12" id="btnRegistrar">

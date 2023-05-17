@@ -81,7 +81,10 @@ input:valid {
     width: 140px;
     text-align: center;
 }
-
+#btnRegistrar{
+    position: relative;
+    top: 10px;
+}
 
 img{
     height: 200px;
