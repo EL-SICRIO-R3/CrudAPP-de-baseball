@@ -136,7 +136,7 @@
             
             <div class="col-md-2" >
                 <label for="inputTemporadas" class="form-label"><strong>Temporadas</strong></label>
-                <select id="inputIDTemporada" class="form-select" name="IDTemporada" required="true" >
+                <select id="inputIDTemporada" class="form-select" name="IDTemporada"  >
                     <?php
                         while ($rowT=mysqli_fetch_array($queryTemporada)) {
                             echo "<option value=".$rowTL['IDTemporada'].">".$rowT['IDTemporada']." ".$rowT['IDLiga']." ".$rowT['Grupo']."</option>";
