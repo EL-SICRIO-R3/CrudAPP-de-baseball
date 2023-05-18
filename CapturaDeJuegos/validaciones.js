@@ -87,7 +87,7 @@
     function pb2(button){
         var btn = document.getElementById(button);
         var lblJornada=document.getElementById("Jornada")
-        console.log(lblJornada);
+        console.log(12311);
         for (var i = 1; i <= 16; i++) {
             var btnAux = document.getElementById("btnJ"+i);
             btnAux.classList.remove("clicked");
@@ -96,6 +96,24 @@
         var btn = document.getElementById(button);
         btn.classList.add("clicked");
         
+    }
+
+    function validarInnings(){
+        var Innings= document.getElementById("Inning")
+        if( Innings.value.length > 2 ){
+            Innings.value = Innings.value.slice(0,2)
+        }  
+        
+        for (let i = 0; i < 5; i++) {
+            console.log("El valor de i es: " + i);
+        }
+    }
+
+    function ejecutarFuncion(event) {
+        if (event.keyCode === 13) {
+          // Aquí puedes llamar a tu función de JavaScript
+          console.log("Se presionó la tecla Enter");
+        }
     }
 
     

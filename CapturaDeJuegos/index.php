@@ -175,7 +175,22 @@
             
 
             <div class="col-12" style="height: 25px;  display: inline; margin-top: 50px; ">
-                <label for="inputJornada" class="form-label" name="Jornada" value="1"><strong>Jornada</strong></label>
+                <script>
+                    function pb2(button){
+                        var btn = document.getElementById(button);
+                        var Jornada=document.getElementById('Jornada').value;
+                        console.log(Jornada);
+                        for (var i = 1; i <= 16; i++) {
+                            var btnAux = document.getElementById("btnJ"+i);
+                            btnAux.classList.remove("clicked");
+
+                        }
+                        var btn = document.getElementById(button);
+                        btn.classList.add("clicked");
+                        
+                    }
+                </script>
+                <label for="inputJornada" class="form-label" ><strong>Jornada</strong></label>
                 <div class="btn-group me-2" role="group" aria-label="Botones">
                     <button type="button" class="btn btn-secondary" id="btnJ1" onclick="pb2('btnJ1')">1</button>
                     <button type="button" class="btn btn-secondary" id="btnJ2" onclick="pb2('btnJ2')">2</button>
@@ -193,7 +208,9 @@
                     <button type="button" class="btn btn-secondary" id="btnJ14" onclick="pb2('btnJ14')">14</button>
                     <button type="button" class="btn btn-secondary" id="btnJ15" onclick="pb2('btnJ15')">15</button>
                     <button type="button" class="btn btn-secondary" id="btnJ16" onclick="pb2('btnJ16')">x</button>
+                    
                 </div>
+                <input type="text" class="invisible" value=1 name="Jornada">
             </div>
             
             <div class="row divLogo" style="margin-top: 50px; ">
@@ -218,7 +235,20 @@
                     </div>
                     <div class="col-md-2" id="innings">
                         <label for="inputInning" class="form-label"><strong>Innings</strong></label>
-                        <input type="Number"  class="form-control" id="inputInnings" name="Inning" required="true"  oninput="if( this.value.length > 2 )  this.value = this.value.slice(0,2)" max="12">
+                        <script>
+                            function validarInning(event) {
+                                
+                                if (event.keyCode === 13) {
+                                    var innings= document.getElementById("inputInnings").value;
+                                    console.log(innings)
+                                    for (var i = 1; i <= innings; i++) {
+                                        document.getElementById("inputInning1"+i).disabled = false;
+                                        document.getElementById("inputInning2"+i).disabled = false;
+                                    }
+                                }
+                            }
+                        </script>
+                        <input type="Number"  class="form-control" id="inputInnings" name="Inning" required="true"  oninput="if( this.value.length > 2 )  this.value = this.value.slice(0,2)" max="10" onkeypress="validarInning(event)">
                     </div>
                 </div>
                 
@@ -265,67 +295,67 @@
                             </th>
                             <th style="width: 60px; ">
                                 <div class="col-md-2" style="width: 60px;">
-                                    <input type="Number"  class="form-control" id="inputInning" name="Inning11" required="true"  >
+                                    <input type="Number"  class="form-control" id="inputInning11" name="Inning11" required="true"  disabled >
                                 </div>
                             </th>
                             <th style="width: 60px;">
                                 <div class="col-md-2" style="width: 60px;">
-                                    <input type="Number"  class="form-control" id="inputInning" name="Inning12" required="true"  >
+                                    <input type="Number"  class="form-control" id="inputInning12" name="Inning12" required="true"  disabled>
                                 </div>
                             </th>
                             <th style="width: 60px;">
                                 <div class="col-md-2" style="width: 60px;">
-                                    <input type="Number"  class="form-control" id="inputInning" name="Inning13" required="true"  >
+                                    <input type="Number"  class="form-control" id="inputInning13" name="Inning13" required="true"  disabled>
                                 </div>
                             </th>
                             <th style="width: 60px;">
                                 <div class="col-md-2" style="width: 60px;">
-                                    <input type="Number"  class="form-control" id="inputInning" name="Inning14" required="true"  >
+                                    <input type="Number"  class="form-control" id="inputInning14" name="Inning14" required="true"  disabled>
                                 </div>
                             </th>
                             <th style="width: 60px;">
                                 <div class="col-md-2" style="width: 60px;">
-                                    <input type="Number"  class="form-control" id="inputInning" name="Inning15" required="true"  >
+                                    <input type="Number"  class="form-control" id="inputInning15" name="Inning15" required="true"  disabled>
                                 </div>
                             </th>
                             <th style="width: 60px;">
                                 <div class="col-md-2" style="width: 60px;">
-                                    <input type="Number"  class="form-control" id="inputInning" name="Inning16" required="true"  >
+                                    <input type="Number"  class="form-control" id="inputInning16" name="Inning16" required="true"  disabled>
                                 </div>
                             </th>
                             <th style="width: 60px;">
                                 <div class="col-md-2" style="width: 60px;">
-                                    <input type="Number"  class="form-control" id="inputInning" name="Inning17" required="true"  >
+                                    <input type="Number"  class="form-control" id="inputInning17" name="Inning17" required="true"  disabled>
                                 </div>
                             </th>
                             <th style="width: 60px;">
                                 <div class="col-md-2" style="width: 60px;">
-                                    <input type="Number"  class="form-control" id="inputInning" name="Inning18" required="true"  >
+                                    <input type="Number"  class="form-control" id="inputInning18" name="Inning18" required="true"  disabled>
                                 </div>
                             </th>
                             <th style="width: 60px;">
                                 <div class="col-md-2" style="width: 60px;">
-                                    <input type="Number"  class="form-control" id="inputInning" name="Inning19" required="true"  >
+                                    <input type="Number"  class="form-control" id="inputInning19" name="Inning19" required="true"  disabled>
                                 </div>
                             </th>
                             <th style="width: 60px;">
                                 <div class="col-md-2" style="width: 60px;">
-                                    <input type="Number"  class="form-control" id="inputInning" name="Inning110" required="true"  >
+                                    <input type="Number"  class="form-control" id="inputInning10" name="Inning110" required="true"  disabled>
                                 </div>
                             </th>
                             <th style="width: 60px;">
                                 <div class="col-md-2" style="width: 60px;">
-                                    <input type="Number"  class="form-control" id="inputInning" name="Inning1C" required="true"  >
+                                    <input type="Number"  class="form-control" id="inputInning1C" name="Inning1C" required="true"  >
                                 </div>
                             </th>
                             <th style="width: 60px;">
                                 <div class="col-md-2" style="width: 60px;">
-                                    <input type="Number"  class="form-control" id="inputInning" name="Inning1H" required="true"  >
+                                    <input type="Number"  class="form-control" id="inputInning1H" name="Inning1H" required="true"  >
                                 </div>
                             </th>
                             <th style="width: 60px;">
                                 <div class="col-md-2" style="width: 60px;">
-                                    <input type="Number"  class="form-control" id="inputInning" name="Inning1E" required="true"  >
+                                    <input type="Number"  class="form-control" id="inputInning1E" name="Inning1E" required="true"  >
                                 </div>
                             </th>
                         </tr>
@@ -342,67 +372,67 @@
                             </th>
                             <th style="width: 60px;">
                                 <div class="col-md-2" style="width: 60px;">
-                                    <input type="Number"  class="form-control" id="inputInning" name="Inning21" required="true"  >
+                                    <input type="Number"  class="form-control" id="inputInning21" name="Inning21" required="true"  disabled>
                                 </div>
                             </th>
                             <th style="width: 60px;">
                                 <div class="col-md-2" style="width: 60px;">
-                                    <input type="Number"  class="form-control" id="inputInning" name="Inning22" required="true"  >
+                                    <input type="Number"  class="form-control" id="inputInning22" name="Inning22" required="true"  disabled>
                                 </div>
                             </th>
                             <th style="width: 60px;">
                                 <div class="col-md-2" style="width: 60px;">
-                                    <input type="Number"  class="form-control" id="inputInning" name="Inning23" required="true"  >
+                                    <input type="Number"  class="form-control" id="inputInning23" name="Inning23" required="true"  disabled>
                                 </div>
                             </th>
                             <th style="width: 60px;">
                                 <div class="col-md-2" style="width: 60px;">
-                                    <input type="Number"  class="form-control" id="inputInning" name="Inning24" required="true"  >
+                                    <input type="Number"  class="form-control" id="inputInning24" name="Inning24" required="true"  disabled>
                                 </div>
                             </th>
                             <th style="width: 60px;">
                                 <div class="col-md-2" style="width: 60px;">
-                                    <input type="Number"  class="form-control" id="inputInning" name="Inning25" required="true"  >
+                                    <input type="Number"  class="form-control" id="inputInning25" name="Inning25" required="true"  disabled>
                                 </div>
                             </th>
                             <th style="width: 60px;">
                                 <div class="col-md-2" style="width: 60px;">
-                                    <input type="Number"  class="form-control" id="inputInning" name="Inning26" required="true"  >
+                                    <input type="Number"  class="form-control" id="inputInning26" name="Inning26" required="true"  disabled>
                                 </div>
                             </th>
                             <th style="width: 60px;">
                                 <div class="col-md-2" style="width: 60px;">
-                                    <input type="Number"  class="form-control" id="inputInning" name="Inning27" required="true"  >
+                                    <input type="Number"  class="form-control" id="inputInning27" name="Inning27" required="true"  disabled>
                                 </div>
                             </th>
                             <th style="width: 60px;">
                                 <div class="col-md-2" style="width: 60px;">
-                                    <input type="Number"  class="form-control" id="inputInning" name="Inning28" required="true"  >
+                                    <input type="Number"  class="form-control" id="inputInning28" name="Inning28" required="true"  disabled>
                                 </div>
                             </th>
                             <th style="width: 60px;">
                                 <div class="col-md-2" style="width: 60px;">
-                                    <input type="Number"  class="form-control" id="inputInning" name="Inning29" required="true"  >
+                                    <input type="Number"  class="form-control" id="inputInning29" name="Inning29" required="true"  disabled>
                                 </div>
                             </th>
                             <th style="width: 60px;">
                                 <div class="col-md-2" style="width: 60px;">
-                                    <input type="Number"  class="form-control" id="inputInning" name="Inning210" required="true"  >
+                                    <input type="Number"  class="form-control" id="inputInning210" name="Inning210" required="true"  disabled>
                                 </div>
                             </th>
                             <th style="width: 60px;">
                                 <div class="col-md-2" style="width: 60px;">
-                                    <input type="Number"  class="form-control" id="inputInning" name="Inning2C" required="true"  >
+                                    <input type="Number"  class="form-control" id="inputInning2C" name="Inning2C" required="true"  >
                                 </div>
                             </th>
                             <th style="width: 60px;">
                                 <div class="col-md-2" style="width: 60px;">
-                                    <input type="Number"  class="form-control" id="inputInning" name="Inning2H" required="true"  >
+                                    <input type="Number"  class="form-control" id="inputInning2H" name="Inning2H" required="true"  >
                                 </div>
                             </th>
                             <th style="width: 60px;">
                                 <div class="col-md-2" style="width: 60px;">
-                                    <input type="Number"  class="form-control" id="inputInning" name="Inning2E" required="true"  >
+                                    <input type="Number"  class="form-control" id="inputInning2E" name="Inning2E" required="true"  >
                                 </div>
                             </th>
                         </tr>
