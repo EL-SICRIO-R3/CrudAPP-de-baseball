@@ -176,41 +176,45 @@
 
             <div class="col-12" style="height: 25px;  display: inline; margin-top: 50px; ">
                 <script>
-                    function pb2(button){
+                    function pb2(button,jornada){
                         var btn = document.getElementById(button);
-                        var Jornada=document.getElementById('Jornada').value;
-                        console.log(Jornada);
+                        //console.log(Jornada);
+                        //var jornada = parseInt(btn.getAttribute("data-valor"));
                         for (var i = 1; i <= 16; i++) {
                             var btnAux = document.getElementById("btnJ"+i);
                             btnAux.classList.remove("clicked");
 
                         }
+                        
                         var btn = document.getElementById(button);
                         btn.classList.add("clicked");
+                        document.getElementById('Jornada').value=jornada;
+                        
+                        console.log(document.getElementById('Jornada').value);
                         
                     }
                 </script>
                 <label for="inputJornada" class="form-label" ><strong>Jornada</strong></label>
                 <div class="btn-group me-2" role="group" aria-label="Botones">
-                    <button type="button" class="btn btn-secondary" id="btnJ1" onclick="pb2('btnJ1')">1</button>
-                    <button type="button" class="btn btn-secondary" id="btnJ2" onclick="pb2('btnJ2')">2</button>
-                    <button type="button" class="btn btn-secondary" id="btnJ3" onclick="pb2('btnJ3')">3</button>
-                    <button type="button" class="btn btn-secondary" id="btnJ4" onclick="pb2('btnJ4')">4</button>
-                    <button type="button" class="btn btn-secondary" id="btnJ5" onclick="pb2('btnJ5')">5</button>
-                    <button type="button" class="btn btn-secondary" id="btnJ6" onclick="pb2('btnJ6')">6</button>
-                    <button type="button" class="btn btn-secondary" id="btnJ7" onclick="pb2('btnJ7')">7</button>
-                    <button type="button" class="btn btn-secondary" id="btnJ8" onclick="pb2('btnJ8')">8</button>
-                    <button type="button" class="btn btn-secondary" id="btnJ9" onclick="pb2('btnJ9')">9</button>
-                    <button type="button" class="btn btn-secondary" id="btnJ10" onclick="pb2('btnJ10')">10</button>
-                    <button type="button" class="btn btn-secondary" id="btnJ11" onclick="pb2('btnJ11')">11</button>
-                    <button type="button" class="btn btn-secondary" id="btnJ12" onclick="pb2('btnJ12')">12</button>
-                    <button type="button" class="btn btn-secondary" id="btnJ13" onclick="pb2('btnJ13')">13</button>
-                    <button type="button" class="btn btn-secondary" id="btnJ14" onclick="pb2('btnJ14')">14</button>
-                    <button type="button" class="btn btn-secondary" id="btnJ15" onclick="pb2('btnJ15')">15</button>
-                    <button type="button" class="btn btn-secondary" id="btnJ16" onclick="pb2('btnJ16')">x</button>
+                    <button type="button" class="btn btn-secondary" id="btnJ1" onclick="pb2('btnJ1',1)">1</button>
+                    <button type="button" class="btn btn-secondary" id="btnJ2" onclick="pb2('btnJ2',2)">2</button>
+                    <button type="button" class="btn btn-secondary" id="btnJ3" onclick="pb2('btnJ3',3)">3</button>
+                    <button type="button" class="btn btn-secondary" id="btnJ4" onclick="pb2('btnJ4',4)">4</button>
+                    <button type="button" class="btn btn-secondary" id="btnJ5" onclick="pb2('btnJ5',5)">5</button>
+                    <button type="button" class="btn btn-secondary" id="btnJ6" onclick="pb2('btnJ6',6)">6</button>
+                    <button type="button" class="btn btn-secondary" id="btnJ7" onclick="pb2('btnJ7',7)">7</button>
+                    <button type="button" class="btn btn-secondary" id="btnJ8" onclick="pb2('btnJ8',8)">8</button>
+                    <button type="button" class="btn btn-secondary" id="btnJ9" onclick="pb2('btnJ9',9)">9</button>
+                    <button type="button" class="btn btn-secondary" id="btnJ10" onclick="pb2('btnJ10',10)">10</button>
+                    <button type="button" class="btn btn-secondary" id="btnJ11" onclick="pb2('btnJ11',11)">11</button>
+                    <button type="button" class="btn btn-secondary" id="btnJ12" onclick="pb2('btnJ12',12)">12</button>
+                    <button type="button" class="btn btn-secondary" id="btnJ13" onclick="pb2('btnJ13',13)">13</button>
+                    <button type="button" class="btn btn-secondary" id="btnJ14" onclick="pb2('btnJ14',14)">14</button>
+                    <button type="button" class="btn btn-secondary" id="btnJ15" onclick="pb2('btnJ15',15)">15</button>
+                    <button type="button" class="btn btn-secondary" id="btnJ16" onclick="pb2('btnJ16',16)">x</button>
                     
                 </div>
-                <input type="text" class="invisible" value=1 name="Jornada">
+                <input type="text" class="invisible" value=1 id="Jornada" name="Jornada">
             </div>
             
             <div class="row divLogo" style="margin-top: 50px; ">
