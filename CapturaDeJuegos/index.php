@@ -505,7 +505,7 @@
                     <label for="inputSalvo" class="form-label"><strong>Aviso:</strong></label>
                 </div>
                 <div class="col-md-3" style="position: relative; top: 20px;">
-                    <select id="inputEquipoLocal" class="form-select" name="EquipoLocal" required="true" >
+                    <select id="inputEquipoLocal" class="form-select" name="Aviso" required="true" >
                         <option value="" disabled selected>Aviso</option>
                         <?php
                             while ($rowAV=mysqli_fetch_array($queryAviso)) {
