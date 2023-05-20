@@ -136,10 +136,12 @@
             
             <div class="col-md-2" >
                 <label for="inputTemporadas" class="form-label"><strong>Temporadas</strong></label>
-                <select id="inputIDTemporada" class="form-select" name="IDTemporada"  >
+                
+                <select id="inputIDTemporada" class="form-select" name="IDTemporada"  required="true">
+                    <option value="" disabled selected>Temporada</option>
                     <?php
-                        while ($rowT=mysqli_fetch_array($queryTemporada)) {
-                            echo "<option value=".$rowTL['IDTemporada'].">".$rowT['IDTemporada']." ".$rowT['IDLiga']." ".$rowT['Grupo']."</option>";
+                        while ($rowTM=mysqli_fetch_array($queryTemporada)) {
+                            echo "<option value=".$rowTM['IDTemporada'].">".$rowTM['IDTemporada']." ".$rowTM['IDLiga']." ".$rowTM['Grupo']."</option>";
                         }
                     ?>
                 </select>
@@ -147,6 +149,7 @@
             <div class="col-md-3" >
                 <label for="inputCampo" class="form-label"><strong>Campo</strong></label>
                 <select id="inputIDCampo" class="form-select" name="IDCampo" required="true" >
+                    <option value="" disabled selected>Campo</option>
                     <?php
                         while ($rowT=mysqli_fetch_array($queryParque)) {
                             echo "<option value=".$rowT['IDCampo'].">".$rowT['Descripcion']."</option>";
@@ -214,7 +217,7 @@
                     <button type="button" class="btn btn-secondary" id="btnJ16" onclick="pb2('btnJ16',16)">x</button>
                     
                 </div>
-                <input type="text" class="invisible" value=1 id="Jornada" name="Jornada">
+                <input type="text" class="invisible" value=1 id="Jornada" name="Jornada" required="true">
             </div>
             
             <div class="row divLogo" style="margin-top: 50px; ">
@@ -291,8 +294,8 @@
                                 <select id="inputEquipoVisitante" class="form-select" name="EquipoVisitante" required="true" >
                                     <option value="" disabled selected>Equipo Visitante</option>
                                     <?php
-                                        while ($rowT=mysqli_fetch_array($queryEquipo)) {
-                                            echo "<option value=".$rowT['IDEquipo'].">".$rowT['Nombre']."</option>";
+                                        while ($rowEV=mysqli_fetch_array($queryEquipo)) {
+                                            echo "<option value=".$rowEV['IDEquipo'].">".$rowEV['Nombre']."</option>";
                                         }
                                     ?>
                                 </select>
@@ -368,8 +371,8 @@
                                 <select id="inputEquipoLocal" class="form-select" name="EquipoLocal" required="true" >
                                     <option value="" disabled selected>Equipo Local</option>
                                     <?php
-                                        while ($rowTL=mysqli_fetch_array($queryEquipoLocal)) {
-                                            echo "<option value=".$rowTL['IDEquipo'].">".$rowTL['Nombre']."</option>";
+                                        while ($rowEL=mysqli_fetch_array($queryEquipoLocal)) {
+                                            echo "<option value=".$rowEL['IDEquipo'].">".$rowEL['Nombre']."</option>";
                                         }
                                     ?>
                                 </select>
@@ -531,6 +534,8 @@
                         <th style="background-color: white;">Fecha</th>
                         <th style="background-color: white;">Visitante</th>
                         <th style="background-color: white;">Local</th>
+                        <th style="background-color: white;">Editar</th>
+                        <th style="background-color: white;">Eliminar</th>
                     </tr>
                 </thead>
                 
@@ -539,8 +544,11 @@
                         while($row=mysqli_fetch_array($query)){
                     ?>
                     <tr>
-                        <th><?php  echo $row['IDCampo']?></th>
-                        <th><?php  echo $row['Descripcion']?></th>
+                        <th><?php  echo $row['IDJuego']?></th>
+                        <th><?php  echo $row['Jornada']?></th>
+                        <th><?php  echo $row['Fecha']?></th>
+                        <th><?php  echo $row['IDEquipoVisitante']?></th>
+                        <th><?php  echo $row['IDEquipoLocal']?></th>
                         <th><a href="actualizar.php?id=<?php echo $row['IDCampo'] ?>"
                             class="btn btn-primary">Editar</a></th>
                         <th><a href="delete.php?id=<?php echo $row['IDCampo'] ?>"

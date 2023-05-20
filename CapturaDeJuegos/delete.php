@@ -5,10 +5,24 @@ $con=conectar();
 
 $id=$_GET['id'];
 
-$sql="DELETE FROM Parques  WHERE IDCampo='$id'";
-$query=mysqli_query($con,$sql);
+echo $id;
 
-    if($query){
+$sqlAmpayersJuego="DELETE *FROM AmpayersJuego  WHERE IDJuego='$id'";
+$queryAmpayersJuego=mysqli_query($con,$sqlAmpayersJuego);
+
+$sqlEntradas="DELETE *FROM Entradas  WHERE IDJuego='$id'";
+$queryEntradas=mysqli_query($con,$sqlEntradas);
+
+$sqlJuegos="DELETE *FROM Juegos  WHERE IDJuego='$id'";
+$queryJuegos=mysqli_query($con,$sqlJuegos);
+
+
+
+
+
+
+
+    if($queryJuegos){
         Header("Location: index.php");
     }
 ?>

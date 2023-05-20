@@ -85,7 +85,7 @@ CREATE TABLE Juegos(
   Jornada int,
   IDCampo int,
   Fecha date,
-  Hora datetime,
+  Hora time,
   Clima varchar(30),
   IDEquipoVisitante int(4),
   IDEquipoLocal int(4),
