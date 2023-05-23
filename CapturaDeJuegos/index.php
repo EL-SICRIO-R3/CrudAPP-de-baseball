@@ -547,11 +547,33 @@
                         <th><?php  echo $row['IDJuego']?></th>
                         <th><?php  echo $row['Jornada']?></th>
                         <th><?php  echo $row['Fecha']?></th>
-                        <th><?php  echo $row['IDEquipoVisitante']?></th>
-                        <th><?php  echo $row['IDEquipoLocal']?></th>
-                        <th><a href="actualizar.php?id=<?php echo $row['IDCampo'] ?>"
+                        <th>
+                            <?php 
+                                $idVisitante= $row['IDEquipoVisitante'];
+                                $sqlNomEquipoVis="SELECT *  FROM Equipos WHERE IDEquipo='$idVisitante'";
+                                $queryNEV=mysqli_query($con, $sqlNomEquipoVis);  
+
+                                while($rowNEV=mysqli_fetch_array($queryNEV)){
+                                    echo $rowNEV['Nombre'];
+                                }
+
+                                
+                            ?>
+                        </th>
+                        <th>
+                            <?php  
+                                $idLocal= $row['IDEquipoLocal'];
+                                $sqlNomEquipoVis="SELECT *  FROM Equipos WHERE IDEquipo='$idLocal'";
+                                $queryNEL=mysqli_query($con, $sqlNomEquipoVis);  
+
+                                while($rowNEL=mysqli_fetch_array($queryNEL)){
+                                    echo $rowNEL['Nombre'];
+                                }
+                            ?>
+                        </th>
+                        <th><a href="actualizar.php?id=<?php echo $row['IDJuego'] ?>"
                             class="btn btn-primary">Editar</a></th>
-                        <th><a href="delete.php?id=<?php echo $row['IDCampo'] ?>"
+                        <th><a href="delete.php?id=<?php echo $row['IDJuego'] ?>"
                             class="btn btn-danger">Eliminar</a></th>
                     </tr>
                     <?php 
