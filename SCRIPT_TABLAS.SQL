@@ -121,3 +121,14 @@ CREATE TABLE AmpayersJuego(
   FOREIGN KEY(IDJuego) REFERENCES Juegos(IDJuego),
   FOREIGN KEY(IDAmpayer) REFERENCES Ampayers(IDAmpayer)
 );
+
+CREATE TABLE Rosters (
+  IDRoster int(11) NOT NULL,
+  IDEquipo int(11) DEFAULT NULL,
+  IDTemporada int(11) DEFAULT NULL,
+  IDAfiliacion int(11) DEFAULT NULL,
+
+  FOREIGN KEY(IDEquipo) REFERENCES Equipos(IDEquipo),
+  FOREIGN KEY(IDTemporada) REFERENCES Temporadas(IDTemporada),
+  FOREIGN KEY(IDAfiliacion) REFERENCES Jugadores(IDAfiliacion)
+);

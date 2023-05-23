@@ -7,13 +7,13 @@ $id=$_GET['id'];
 
 echo $id;
 
-$sqlAmpayersJuego="DELETE *FROM AmpayersJuego  WHERE IDJuego='$id'";
+$sqlAmpayersJuego="DELETE FROM AmpayersJuego  WHERE IDJuego='$id'";
 $queryAmpayersJuego=mysqli_query($con,$sqlAmpayersJuego);
 
-$sqlEntradas="DELETE *FROM Entradas  WHERE IDJuego='$id'";
+$sqlEntradas="DELETE FROM Entradas  WHERE IDJuego='$id'";
 $queryEntradas=mysqli_query($con,$sqlEntradas);
 
-$sqlJuegos="DELETE *FROM Juegos  WHERE IDJuego='$id'";
+$sqlJuegos="DELETE FROM Juegos  WHERE IDJuego='$id'";
 $queryJuegos=mysqli_query($con,$sqlJuegos);
 
 
