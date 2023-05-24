@@ -155,7 +155,7 @@
                         <th>Nombre</th>
                         <th>IDLogo</th>
                         <th>Ciudad</th>
-                        <th>IDTecnico</th>
+                        <th>Tecnico</th>
                         <th>Editar</th>
                         <th>Eliminar</th>
                     </tr>
@@ -170,7 +170,16 @@
                         <th><?php  echo $row['Nombre']?></th>
                         <th><?php  echo $row['IDLogo']?></th>
                         <th><?php  echo $row['Ciudad']?></th>
-                        <th><?php  echo $row['IDTecnico']?></th>
+                        <th>
+                            <?php 
+                                 $idTecnico= $row['IDTecnico'];
+                                 $sqlTecnico="SELECT *  FROM Manejadores WHERE IDTecnico='$idTecnico'";
+                                 $queryTecnico=mysqli_query($con, $sqlTecnico);  
+ 
+                                 $rowTec=mysqli_fetch_array($queryTecnico);
+                                echo $rowTec['Nombre']
+                            ?>
+                        </th>
                         <th><a href="actualizar.php?id=<?php echo $row['IDEquipo'] ?>"
                             class="btn btn-primary">Editar</a></th>
                         <th><a href="delete.php?id=<?php echo $row['IDEquipo'] ?>"

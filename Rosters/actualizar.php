@@ -7,7 +7,29 @@
     $sql="SELECT * FROM Rosters WHERE IDRoster='$id'";
     $query=mysqli_query($con,$sql);
 
+    $sqlEquipo="SELECT *  FROM Equipos";
+    $queryEquipo=mysqli_query($con, $sqlEquipo);
+
+    $sqlTemporada="SELECT * FROM Temporadas";
+    $queryTemporada=mysqli_query($con, $sqlTemporada);
+
+    $sqlAfiliacion="SELECT * FROM Jugadores";
+    $queryAfiliacion=mysqli_query($con, $sqlAfiliacion);
+
+    
     $row=mysqli_fetch_array($query);
+
+
+    $EquipoActual="SELECT *  FROM Equipos WHERE IDEquipo = '$row[IDEquipo]'";
+    $qEquipoActual=mysqli_query($con, $EquipoActual);
+
+    $TemporadaActual="SELECT *  FROM Temporadas WHERE IDTemporada = '$row[IDTemporada]'";
+    $qTemporadaActual=mysqli_query($con, $TemporadaActual);
+
+    $JugadorActual="SELECT *  FROM Jugadores WHERE IDAfiliacion = '$row[IDAfiliacion]'";
+    $qJugadorActual=mysqli_query($con, $JugadorActual);
+
+    
 ?>
 
 <!DOCTYPE html>
@@ -25,7 +47,7 @@
 
 <body>
     <div class="container" style="margin-top: 10px;">
-    <form class="row g-3" action="update.php?id=<?php echo $IDRoster?>" method="POST" id="formulario">
+    <form class="row g-3" action="update.php?id=<?php echo $id?>" method="POST" id="formulario">
             <div class="col-md-2">
                 <label for="inputIDRoster" class="form-label"><strong>IDRoster</strong></label>
                 <input type="text" class="form-control" id="inputIDRoster" name="IDRoster" required="true" readonly value = "<?php echo($id); ?>">
@@ -34,10 +56,12 @@
             <div class="col-md-2">
                 <label for="inputIDEquipo" class="form-label"><strong>Equipo</strong></label>
                 <select id="inputIDEquipo" class="form-select" name="IDEquipo" required="true" value="<?php echo $row['IDEquipo']?>">
-                    <option selected ><?php echo $row['IDEquipo']?></option>
                     <?php
-                        while ($rowT=mysqli_fetch_array($queryEquipo)) {
-                            echo "<option>".$rowL['Equipo']."</option>";
+                        $rowEquipoActual=mysqli_fetch_array($qEquipoActual);
+                        echo "<option value=".$rowEquipoActual['IDEquipo']." selected>".$rowEquipoActual['Nombre']."</option>";
+                    
+                        while ($rowE=mysqli_fetch_array($queryEquipo)) {
+                            echo "<option value=".$rowE['IDEquipo'].">".$rowE['Nombre']."</option>";
                         }
                     ?>
                 </select>
@@ -47,23 +71,26 @@
             <div class="col-md-2">
                 <label for="inputIDTemporada" class="form-label"><strong>Temporada</strong></label>
                 <select id="inputIDTemporada" class="form-select" name="IDTemporada" required="true" value="<?php echo $row['IDTemporada']?>">
-                    <option selected ><?php echo $row['IDTemporada']?></option>
-
                     <?php
+                        $rowTemporadaActual=mysqli_fetch_array($qTemporadaActual);
+                        echo "<option value=".$rowTemporadaActual['IDTemporada']." selected>".$rowTemporadaActual['IDTemporada']." ".$rowTemporadaActual['IDLiga']." ".$rowTemporadaActual['Grupo']."</option>";
+                
                         while ($rowT=mysqli_fetch_array($queryTemporada)) {
-                            echo "<option>".$rowL['IDLiga']."</option>";
+                            echo "<option value=".$rowT['IDTemporada'].">".$rowT['IDTemporada']." ".$rowT['IDLiga']." ".$rowT['Grupo']."</option>";
                         }
                     ?>
                 </select>
             </div>
 
             <div class="col-md-2">
-                <label for="inputIDAfiliacion" class="form-label" disabled selected><strong>Jugadores</strong></label>
+                <label for="inputIDAfiliacion" class="form-label" ><strong>Jugador</strong></label>
                 <select id="inputIDAfiliacion" class="form-select" name="IDAfiliacion" required="true" value="<?php echo $row['IDAfiliacion']?>">
-
                     <?php
-                        while ($rowT=mysqli_fetch_array($queryAfiliacion)) {
-                            echo "<option>".$rowL['Nombre']."</option>";
+                        $rowJugadorActual=mysqli_fetch_array($qJugadorActual);
+                        echo "<option value=".$rowJugadorActual['IDAfiliacion']." selected>".$rowJugadorActual['Abreviacion']."</option>";
+
+                        while ($rowA=mysqli_fetch_array($queryAfiliacion)) {
+                            echo "<option value=".$rowA['IDAfiliacion'].">".$rowA['Abreviacion']."</option>";
                         }
                     ?>
 

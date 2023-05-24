@@ -4,10 +4,18 @@
 
     $id=$_GET['id'];
 
-    $sql="SELECT * FROM Equipos WHERE IDEquipos='$id'";
+    $sql="SELECT * FROM Equipos WHERE IDEquipo='$id'";
     $query=mysqli_query($con,$sql);
 
+    $sqlTecnico="SELECT * FROM Manejadores";
+    $queryTecnico=mysqli_query($con, $sqlTecnico);
+
     $row=mysqli_fetch_array($query);
+
+
+
+    $TecnicoActual="SELECT *  FROM Manejadores WHERE IDTecnico = '$row[IDTecnico]'";
+    $qTecnicoActual=mysqli_query($con, $TecnicoActual);
 ?>
 
 <!DOCTYPE html>
@@ -28,7 +36,7 @@
     <form class="row g-3" action="update.php?id=<?php echo $row['IDEquipo']?>" method="POST" id="formulario">
             <div class="col-md-2">
                 <label for="inputIDEquipo" class="form-label"><strong>IDEquipo</strong></label>
-                <input type="text" class="form-control" id="inputIDEquipo" name="IDEquipo" required="true" readonly <?php echo $row['IDEquipo']?> ?>">
+                <input type="text" class="form-control" id="inputIDEquipo" name="IDEquipo" required="true" readonly value="<?php echo $row['IDEquipo']?> ">
             </div>
             <div class="col-md-5">
                 <label for="inputNombre" class="form-label"><strong>Nombre</strong></label>
@@ -47,11 +55,14 @@
             
             <div class="col-md-2">
                 <label for="inputIDTecnico" class="form-label"><strong>Tecnico</strong></label>
-                <select id="inputIDTecnico" class="form-select" name="IDTecnico" required="true" value="<?php echo $row['IDTecnico']?>">
-                    <option selected ><?php echo $row['IDTecnico']?></option>
+                <select id="inputIDTecnico" class="form-select" name="Tecnico" required="true" value="<?php echo $row[IDTecnico]?>">
                     <?php
+
+                        $rowTecnicoActual=mysqli_fetch_array($qTecnicoActual);
+                        echo "<option value=".$rowTecnicoActual['IDTecnico']." selected>".$rowTecnicoActual['Nombre']."</option>";
+
                         while ($rowT=mysqli_fetch_array($queryTecnico)) {
-                            echo "<option>".$rowL['Nombre']."</option>";
+                            echo "<option value=".$rowE['IDTecnico'].">".$rowT['Nombre']."</option>";
                         }
                     ?>
                 </select>

@@ -142,7 +142,7 @@
 
                     <?php
                         while ($rowT=mysqli_fetch_array($queryTemporada)) {
-                            echo "<option value=".$rowT['IDTemporada'].">".$rowT['IDLiga']."</option>";
+                            echo "<option value=".$rowT['IDTemporada'].">".$rowT['IDTemporada']." ".$rowT['IDLiga']." ".$rowT['Grupo']."</option>";
                         }
                     ?>
 
@@ -152,12 +152,12 @@
 
 
             <div class="col-md-2">
-                <label for="inputIDAfiliacion" class="form-label" disabled selected><strong>Jugadores</strong></label>
+                <label for="inputIDAfiliacion" class="form-label" disabled selected><strong>Jugador</strong></label>
                 <select id="inputIDAfiliacion" class="form-select" name="IDAfiliacion" required="true" >
 
                     <?php
                         while ($rowT=mysqli_fetch_array($queryAfiliacion)) {
-                            echo "<option value=".$rowT['IDAfiliacion'].">".$rowT['Nombre']."</option>";
+                            echo "<option value=".$rowT['IDAfiliacion'].">".$rowT['Abreviacion']."</option>";
                         }
                     ?>
 
@@ -178,9 +178,9 @@
                 <thead class="table-success table-striped">
                     <tr>
                         <th>IDRoster</th>
-                        <th>IDEquipo</th>
-                        <th>IDTemporada</th>
-                        <th>IDAfiliacion</th>
+                        <th>Equipo</th>
+                        <th>Temporada</th>
+                        <th>Afiliacion</th>
                         <th>Editar</th>
                         <th>Eliminar</th>
                     </tr>
@@ -192,9 +192,36 @@
                     ?>
                     <tr>
                         <th><?php  echo $row['IDRoster']?></th>
-                        <th><?php  echo $row['IDEquipo']?></th>
-                        <th><?php  echo $row['IDTemporada']?></th>
-                        <th><?php  echo $row['IDAfiliacion']?></th>
+                        <th>
+                            <?php 
+                                $idEquipo= $row['IDEquipo'];
+                                $qEquipo="SELECT *  FROM Equipos WHERE IDEquipo='$idEquipo'";
+                                $queryE=mysqli_query($con, $qEquipo);  
+ 
+                                $rowEquipo=mysqli_fetch_array($queryE);
+                                echo $rowEquipo['Nombre']
+                            ?>
+                        </th>
+                        <th>
+                            <?php 
+                                $idTemporada= $row['IDTemporada'];
+                                $qTemporada="SELECT *  FROM Temporadas WHERE IDTemporada='$idTemporada'";
+                                $queryT=mysqli_query($con, $qTemporada);  
+ 
+                                $rowTemporada=mysqli_fetch_array($queryT);
+                                echo $rowTemporada['IDTemporada']." ".$rowTemporada['IDLiga']." ".$rowTemporada['Grupo'];
+                            ?>
+                        </th>
+                        <th>
+                            <?php 
+                                $idAfiliacion= $row['IDAfiliacion'];
+                                $qAfiliacion="SELECT *  FROM Jugadores WHERE IDAfiliacion='$idAfiliacion'";
+                                $queryA=mysqli_query($con, $qAfiliacion);  
+ 
+                                $rowAfiliacion=mysqli_fetch_array($queryA);
+                                echo $rowAfiliacion['IDAfiliacion']."-".$rowAfiliacion['Abreviacion'];
+                            ?>
+                        </th>
 
 
                         <th><a href="actualizar.php?id=<?php echo $row['IDRoster'] ?>"

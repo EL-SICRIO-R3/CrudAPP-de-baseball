@@ -556,22 +556,17 @@
                                 $sqlNomEquipoVis="SELECT *  FROM Equipos WHERE IDEquipo='$idVisitante'";
                                 $queryNEV=mysqli_query($con, $sqlNomEquipoVis);  
 
-                                while($rowNEV=mysqli_fetch_array($queryNEV)){
-                                    echo $rowNEV['Nombre'];
-                                }
-
-                                
+                                $rowNEV=mysqli_fetch_array($queryNEV);
+                                echo $rowNEV['Nombre'];
                             ?>
                         </th>
                         <th>
                             <?php  
                                 $idLocal= $row['IDEquipoLocal'];
                                 $sqlNomEquipoVis="SELECT *  FROM Equipos WHERE IDEquipo='$idLocal'";
-                                $queryNEL=mysqli_query($con, $sqlNomEquipoVis);  
-
-                                while($rowNEL=mysqli_fetch_array($queryNEL)){
-                                    echo $rowNEL['Nombre'];
-                                }
+                                $queryNEL=mysqli_query($con, $sqlNomEquipoVis);
+                                $rowNEL=mysqli_fetch_array($queryNEL);
+                                echo $rowNEL['Nombre'];
                             ?>
                         </th>
                         <th><a href="actualizar.php?id=<?php echo $row['IDJuego'] ?>"
