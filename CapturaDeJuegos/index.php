@@ -121,8 +121,9 @@
                             <a class="nav-link" href="http://localhost:8080/partidos-app/Git/CrudAPP-de-baseball/Rosters/">Rosters</a>
                         </li>
                     </ul>
+                    
                     <form class="d-flex" role="search">
-                        <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
+                        <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search" id="searchInput">
                         <button class="btn btn-outline-success" type="submit">Buscar</button>
                     </form>
                 </div>
@@ -234,6 +235,37 @@
                 <div class="col-md-3 imgEquipoVisitante">
                     <img src="../img/logos/venados.png" alt="">
                 </div>
+                <script>
+                    function MFinal(){
+                        let totalEquipoVisitante=0;
+                        let totalEquipoLocal=0;
+                        var innings= document.getElementById("inputInnings").value;
+
+                        for (var i = 1; i <= innings; i++) {
+
+                            
+                            
+                            if(parseInt(document.getElementById("inputInning1"+i).value)){
+                                totalEquipoVisitante = parseInt(document.getElementById("inputInning1"+i).value)+totalEquipoVisitante;
+                                console.log(totalEquipoVisitante)
+                            }
+
+                            if(parseInt(document.getElementById("inputInning2"+i).value)){
+                                totalEquipoLocal = parseInt(document.getElementById("inputInning2"+i).value)+totalEquipoLocal;
+                            }
+                            
+                        }
+                        //console.log(totalEquipoVisitante)
+                        console.log(totalEquipoVisitante)
+                        console.log(totalEquipoLocal)
+                        document.getElementById("inputFinalLocal").value=totalEquipoLocal;
+                        document.getElementById("inputFinalVisitante").value=totalEquipoVisitante;
+
+                        document.getElementById("inputInning1C").value=totalEquipoVisitante;
+                        document.getElementById("inputInning2C").value=totalEquipoLocal;
+
+                    }
+                </script>
                 <div class="col-md-4 marcadorFinal"  id="maradorFinal">
                     <div class="col-md-4 " style="">
                         <label for="inputFinal" class="form-label" style="width: 140px;"><strong>Marcador Final</strong></label>
@@ -312,67 +344,67 @@
                             </th>
                             <th style="width: 60px; ">
                                 <div class="col-md-2" style="width: 60px;">
-                                    <input type="Number"  class="form-control" id="inputInning11" name="Inning11" required="true"   tabindex="9" disabled min="0">
+                                    <input type="Number"  class="form-control" id="inputInning11" name="Inning11" required="true"   tabindex="9" min="0" oninput="MFinal()" disabled >
                                 </div>
                             </th>
                             <th style="width: 60px;">
                                 <div class="col-md-2" style="width: 60px;">
-                                    <input type="Number"  class="form-control" id="inputInning12" name="Inning12" required="true" tabindex="11"  disabled>
+                                    <input type="Number"  class="form-control" id="inputInning12" name="Inning12" required="true" tabindex="11" min="0" oninput="MFinal()"  disabled>
                                 </div>
                             </th>
                             <th style="width: 60px;">
                                 <div class="col-md-2" style="width: 60px;">
-                                    <input type="Number"  class="form-control" id="inputInning13" name="Inning13" required="true" tabindex="13" disabled>
+                                    <input type="Number"  class="form-control" id="inputInning13" name="Inning13" required="true" tabindex="13" min="0" oninput="MFinal()" disabled>
                                 </div>
                             </th>
                             <th style="width: 60px;">
                                 <div class="col-md-2" style="width: 60px;">
-                                    <input type="Number"  class="form-control" id="inputInning14" name="Inning14" required="true" tabindex="15" disabled>
+                                    <input type="Number"  class="form-control" id="inputInning14" name="Inning14" required="true" tabindex="15" min="0" oninput="MFinal()" disabled>
                                 </div>
                             </th>
                             <th style="width: 60px;">
                                 <div class="col-md-2" style="width: 60px;">
-                                    <input type="Number"  class="form-control" id="inputInning15" name="Inning15" required="true" tabindex="17" disabled>
+                                    <input type="Number"  class="form-control" id="inputInning15" name="Inning15" required="true" tabindex="17" min="0" oninput="MFinal()" disabled>
                                 </div>
                             </th>
                             <th style="width: 60px;">
                                 <div class="col-md-2" style="width: 60px;">
-                                    <input type="Number"  class="form-control" id="inputInning16" name="Inning16" required="true" tabindex="19" disabled>
+                                    <input type="Number"  class="form-control" id="inputInning16" name="Inning16" required="true" tabindex="19" min="0" oninput="MFinal()" disabled>
                                 </div>
                             </th>
                             <th style="width: 60px;">
                                 <div class="col-md-2" style="width: 60px;">
-                                    <input type="Number"  class="form-control" id="inputInning17" name="Inning17" required="true" tabindex="21" disabled>
+                                    <input type="Number"  class="form-control" id="inputInning17" name="Inning17" required="true" tabindex="21" min="0" oninput="MFinal()" disabled>
                                 </div>
                             </th>
                             <th style="width: 60px;">
                                 <div class="col-md-2" style="width: 60px;">
-                                    <input type="Number"  class="form-control" id="inputInning18" name="Inning18" required="true" tabindex="23" disabled>
+                                    <input type="Number"  class="form-control" id="inputInning18" name="Inning18" required="true" tabindex="23" min="0" oninput="MFinal()" disabled>
                                 </div>
                             </th>
                             <th style="width: 60px;">
                                 <div class="col-md-2" style="width: 60px;">
-                                    <input type="Number"  class="form-control" id="inputInning19" name="Inning19" required="true" tabindex="25" disabled>
+                                    <input type="Number"  class="form-control" id="inputInning19" name="Inning19" required="true" tabindex="25" min="0" oninput="MFinal()" disabled>
                                 </div>
                             </th>
                             <th style="width: 60px;">
                                 <div class="col-md-2" style="width: 60px;">
-                                    <input type="Number"  class="form-control" id="inputInning110" name="Inning110" required="true" tabindex="27" disabled>
+                                    <input type="Number"  class="form-control" id="inputInning110" name="Inning110" required="true" tabindex="27" min="0" oninput="MFinal()" disabled>
                                 </div>
                             </th>
                             <th style="width: 60px;">
                                 <div class="col-md-2" style="width: 60px;">
-                                    <input type="Number"  class="form-control" id="inputInning1C" name="Inning1C" required="true" tabindex="29" >
+                                    <input type="Number"  class="form-control" id="inputInning1C" name="Inning1C" required="true" tabindex="29" min="0"  disabled>
                                 </div>
                             </th>
                             <th style="width: 60px;">
                                 <div class="col-md-2" style="width: 60px;">
-                                    <input type="Number"  class="form-control" id="inputInning1H" name="Inning1H" required="true" tabindex="31" >
+                                    <input type="Number"  class="form-control" id="inputInning1H" name="Inning1H" required="true" tabindex="31" min="0"  >
                                 </div>
                             </th>
                             <th style="width: 60px;">
                                 <div class="col-md-2" style="width: 60px;">
-                                    <input type="Number"  class="form-control" id="inputInning1E" name="Inning1E" required="true" tabindex="33" >
+                                    <input type="Number"  class="form-control" id="inputInning1E" name="Inning1E" required="true" tabindex="33" min="0"  >
                                 </div>
                             </th>
                         </tr>
@@ -389,67 +421,67 @@
                             </th>
                             <th style="width: 60px;">
                                 <div class="col-md-2" style="width: 60px;">
-                                    <input type="Number"  class="form-control" id="inputInning21" name="Inning21" required="true" tabindex="10" disabled>
+                                    <input type="Number"  class="form-control" id="inputInning21" name="Inning21" required="true" tabindex="10" min="0" oninput="MFinal()" disabled>
                                 </div>
                             </th>
                             <th style="width: 60px;">
                                 <div class="col-md-2" style="width: 60px;">
-                                    <input type="Number"  class="form-control" id="inputInning22" name="Inning22" required="true" tabindex="12" disabled>
+                                    <input type="Number"  class="form-control" id="inputInning22" name="Inning22" required="true" tabindex="12" min="0" oninput="MFinal()" disabled>
                                 </div>
                             </th>
                             <th style="width: 60px;">
                                 <div class="col-md-2" style="width: 60px;">
-                                    <input type="Number"  class="form-control" id="inputInning23" name="Inning23" required="true" tabindex="14" disabled>
+                                    <input type="Number"  class="form-control" id="inputInning23" name="Inning23" required="true" tabindex="14" min="0" oninput="MFinal()" disabled>
                                 </div>
                             </th>
                             <th style="width: 60px;">
                                 <div class="col-md-2" style="width: 60px;">
-                                    <input type="Number"  class="form-control" id="inputInning24" name="Inning24" required="true" tabindex="16" disabled>
+                                    <input type="Number"  class="form-control" id="inputInning24" name="Inning24" required="true" tabindex="16" min="0" oninput="MFinal()" disabled>
                                 </div>
                             </th>
                             <th style="width: 60px;">
                                 <div class="col-md-2" style="width: 60px;">
-                                    <input type="Number"  class="form-control" id="inputInning25" name="Inning25" required="true" tabindex="18" disabled>
+                                    <input type="Number"  class="form-control" id="inputInning25" name="Inning25" required="true" tabindex="18" min="0" oninput="MFinal()" disabled>
                                 </div>
                             </th>
                             <th style="width: 60px;">
                                 <div class="col-md-2" style="width: 60px;">
-                                    <input type="Number"  class="form-control" id="inputInning26" name="Inning26" required="true" tabindex="20"  disabled>
+                                    <input type="Number"  class="form-control" id="inputInning26" name="Inning26" required="true" tabindex="20" min="0" oninput="MFinal()" disabled>
                                 </div>
                             </th>
                             <th style="width: 60px;">
                                 <div class="col-md-2" style="width: 60px;">
-                                    <input type="Number"  class="form-control" id="inputInning27" name="Inning27" required="true" tabindex="22" disabled>
+                                    <input type="Number"  class="form-control" id="inputInning27" name="Inning27" required="true" tabindex="22" min="0" oninput="MFinal()" disabled>
                                 </div>
                             </th>
                             <th style="width: 60px;">
                                 <div class="col-md-2" style="width: 60px;">
-                                    <input type="Number"  class="form-control" id="inputInning28" name="Inning28" required="true" tabindex="24" disabled>
+                                    <input type="Number"  class="form-control" id="inputInning28" name="Inning28" required="true" tabindex="24" min="0" oninput="MFinal()" disabled>
                                 </div>
                             </th>
                             <th style="width: 60px;">
                                 <div class="col-md-2" style="width: 60px;">
-                                    <input type="Number"  class="form-control" id="inputInning29" name="Inning29" required="true" tabindex="26" disabled>
+                                    <input type="Number"  class="form-control" id="inputInning29" name="Inning29" required="true" tabindex="26" min="0" oninput="MFinal()" disabled>
                                 </div>
                             </th>
                             <th style="width: 60px;">
                                 <div class="col-md-2" style="width: 60px;">
-                                    <input type="Number"  class="form-control" id="inputInning210" name="Inning210" required="true" tabindex="28" disabled>
+                                    <input type="Number"  class="form-control" id="inputInning210" name="Inning210" required="true" tabindex="28" min="0" oninput="MFinal()" disabled>
                                 </div>
                             </th>
                             <th style="width: 60px;">
                                 <div class="col-md-2" style="width: 60px;">
-                                    <input type="Number"  class="form-control" id="inputInning2C" name="Inning2C" required="true" tabindex="30" >
+                                    <input type="Number"  class="form-control" id="inputInning2C" name="Inning2C" required="true" tabindex="30" min="0"  disabled>
                                 </div>
                             </th>
                             <th style="width: 60px;">
                                 <div class="col-md-2" style="width: 60px;">
-                                    <input type="Number"  class="form-control" id="inputInning2H" name="Inning2H" required="true" tabindex="32" >
+                                    <input type="Number"  class="form-control" id="inputInning2H" name="Inning2H" required="true" tabindex="32" min="0" >
                                 </div>
                             </th>
                             <th style="width: 60px;">
                                 <div class="col-md-2" style="width: 60px;">
-                                    <input type="Number"  class="form-control" id="inputInning2E" name="Inning2E" required="true" tabindex="34" >
+                                    <input type="Number"  class="form-control" id="inputInning2E" name="Inning2E" required="true" tabindex="34" min="0" >
                                 </div>
                             </th>
                         </tr>
