@@ -255,14 +255,23 @@
                             }
                             
                         }
-                        //console.log(totalEquipoVisitante)
-                        console.log(totalEquipoVisitante)
-                        console.log(totalEquipoLocal)
                         document.getElementById("inputFinalLocal").value=totalEquipoLocal;
                         document.getElementById("inputFinalVisitante").value=totalEquipoVisitante;
 
                         document.getElementById("inputInning1C").value=totalEquipoVisitante;
                         document.getElementById("inputInning2C").value=totalEquipoLocal;
+
+                        if(totalEquipoVisitante>totalEquipoLocal){
+                            document.getElementById("inputGano").value="Visitante";
+                            document.getElementById("inputPerdio").value="Local";
+                        }else if(totalEquipoVisitante<totalEquipoLocal){
+                            document.getElementById("inputGano").value="Local";
+                            document.getElementById("inputPerdio").value="Visitante";
+                        }else{
+                            document.getElementById("inputGano").value="Empate";
+                            document.getElementById("inputPerdio").value="Empate";
+                        }
+                        
 
                     }
                 </script>
@@ -337,7 +346,7 @@
                                     <option value="" disabled selected>Equipo Visitante</option>
                                     <?php
                                         while ($rowEV=mysqli_fetch_array($queryEquipo)) {
-                                            echo "<option value=".$rowEV['IDEquipo'].">".$rowEV['Nombre']."</option>";
+                                            echo "<option value=".$rowEV['IDEquipo']." placeholder=".$rowEV['Nombre'].">".$rowEV['Nombre']."</option>";
                                         }
                                     ?>
                                 </select>
