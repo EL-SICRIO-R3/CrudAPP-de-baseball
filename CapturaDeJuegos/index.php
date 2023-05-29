@@ -251,9 +251,16 @@
                                 if (event.keyCode === 13) {
                                     var innings= document.getElementById("inputInnings").value;
                                     console.log(innings)
+
                                     for (var i = 1; i <= innings; i++) {
                                         document.getElementById("inputInning1"+i).disabled = false;
                                         document.getElementById("inputInning2"+i).disabled = false;
+                                    }
+                                    var inn=parseInt(innings)+1;
+                                    console.log(inn);
+                                    for (var j = inn; j <= 10; j++) {
+                                        document.getElementById("inputInning1"+j).disabled = true;
+                                        document.getElementById("inputInning2"+j).disabled = true;
                                     }
                                 }
                             }
@@ -305,7 +312,7 @@
                             </th>
                             <th style="width: 60px; ">
                                 <div class="col-md-2" style="width: 60px;">
-                                    <input type="Number"  class="form-control" id="inputInning11" name="Inning11" required="true"  disabled >
+                                    <input type="Number"  class="form-control" id="inputInning11" name="Inning11" required="true"   >
                                 </div>
                             </th>
                             <th style="width: 60px;">
@@ -350,7 +357,7 @@
                             </th>
                             <th style="width: 60px;">
                                 <div class="col-md-2" style="width: 60px;">
-                                    <input type="Number"  class="form-control" id="inputInning10" name="Inning110" required="true"  disabled>
+                                    <input type="Number"  class="form-control" id="inputInning110" name="Inning110" required="true"  disabled>
                                 </div>
                             </th>
                             <th style="width: 60px;">
