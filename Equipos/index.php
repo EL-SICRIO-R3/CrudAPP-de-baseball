@@ -110,7 +110,7 @@
     </div>
 
     <div class="container" style="margin-top: 10px;">
-        <form class="row g-3" action="insertar.php?id=<?php echo $idEquipo ?>" method="POST" id="formulario">
+        <form class="row g-3" action="insertar.php?id=<?php echo $idEquipo ?>" method="POST" id="formulario" enctype="multipart/form-data">
             <div class="col-md-2">
                 <label for="inputIDEquipo" class="form-label"><strong>IDEquipo</strong></label>
                 <input type="text" class="form-control" id="inputIDEquipo" name="IDEquipo" required="true" readonly value="<?php echo($idEquipo); ?>">
@@ -121,7 +121,7 @@
             </div>
             <div class="col-md-5">
                 <label for="inputLogo" class="form-label"><strong>Logo</strong></label>
-                <input type="number" class="form-control" id="inputLogo" name="Logo" required="true">
+                <input type="file" class="form-control" id="inputLogo" name="Logo" required="true">
             </div>
             
             <div class="col-md-4">

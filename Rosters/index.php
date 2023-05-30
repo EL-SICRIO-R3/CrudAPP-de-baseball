@@ -157,7 +157,7 @@
 
                     <?php
                         while ($rowT=mysqli_fetch_array($queryAfiliacion)) {
-                            echo "<option value=".$rowT['IDAfiliacion'].">".$rowT['Abreviacion']."</option>";
+                            echo "<option value=".$rowT['IDAfiliacion'].">".$rowT['IDAfiliacion']."-".$rowT['Abreviacion']."</option>";
                         }
                     ?>
 

@@ -227,13 +227,13 @@
             <div class="row divLogo" style="margin-top: 50px; ">
                 
                 <div class="col-md-3 imgEquipoLocal" style="">
-                    <img src="../img/logos/tomateros.png" alt="">
+                    <img src="../img/logos/tomateros.png" alt="" id="imgEquipoLocal">
                 </div>
                 <div class="col-md-3 lblVS">
                     <h1><strong>VS</strong></h1>
                 </div>
                 <div class="col-md-3 imgEquipoVisitante">
-                    <img src="../img/logos/venados.png" alt="">
+                    <img src="../img/logos/venados.png" alt="" id="imgEquipoLocal">
                 </div>
                 <script>
                     function MFinal(){
