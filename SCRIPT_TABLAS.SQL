@@ -91,6 +91,12 @@ CREATE TABLE Juegos(
   IDEquipoLocal int(4),
   Final varchar(150),
   IDAviso int,
+  ErroresLocal int,
+  ErroresVisitante int,
+  CarrerasLocal int,
+  CarrerasVisitante int,
+  HitsLocal int,
+  HitsVisitante int,
 
   FOREIGN KEY(IDTemporada) REFERENCES Temporadas(IDTemporada),
   FOREIGN KEY(IDCampo) REFERENCES Parques(IDCampo),
@@ -103,11 +109,7 @@ CREATE TABLE Entradas(
   IDJuego int,
   IDInning int,
   CarrerasLocal int,
-  CarrerasVisitante int,
-  EntradaAlta int,
-  EntradaBaja int,
-  CarrerasAlta int,
-  CarrerasBaja int,
+  CarrerasVisitante int
 
   FOREIGN KEY(IDJuego) REFERENCES Juegos(IDJuego)
 

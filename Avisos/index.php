@@ -1,26 +1,33 @@
 <?php 
     include("conexiones.php");
     $con=conectar();
-    
-    $sql="SELECT *  FROM Temporadas";
-    $query=mysqli_query($con, $sql);
 
-    $sqlId="SELECT count(IDTemporada) as id  FROM Temporadas";
-    $queryId=mysqli_query($con, $sqlId);
+    $sql="SELECT *  FROM Avisos";
+    $query=mysqli_query($con,$sql);
+
+    $sqlId="SELECT count(IDAviso) as id  FROM Avisos";
+    $queryId=mysqli_query($con,$sqlId);
 
     $id=mysqli_fetch_array($queryId);
 
+
+
     //$row=mysqli_fetch_array($query);
-    $idTemporada= date("y");
-    $idTemporada=$idTemporada*10000;
-    $idTemporada=$idTemporada+$id['id']+1;
-    $DateA = date("Y");
+    /*$idAmpayer=date("y");
+    $idAmpayer=$idAmpayer*100; */
 
-    
-    $sqlLiga="SELECT *  FROM Ligas";
-    $queryLiga=mysqli_query($con, $sqlLiga);
+    $IDAviso=$id['id']+1;
 
-    
+    $idM = strlen($IDAviso);
+
+    if($idM==1)
+        $IDAviso = "000$IDAviso";
+    elseif ($idM==2)
+        $IDAviso = "00$IDAviso";
+    elseif ($idM == 3)
+        $IDAviso = "0$IDAviso";
+    else ($IDAviso = $idM)
+    //echo($idAfiliacion);
     
 ?>
 <!DOCTYPE html>
@@ -30,14 +37,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Partidos-App</title>
+    <title>LIGA MLB</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="styles.css">
     <script src="./validaciones.js"></script>
     <script src="../js/Validaciones.js"></script>
+    
     
 </head>
 
@@ -81,13 +90,13 @@
                             <a class="nav-link" href="http://localhost:8080/partidos-app/Git/CrudAPP-de-baseball/Ligas/">Ligas</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" href="http://localhost:8080/partidos-app/Git/CrudAPP-de-baseball/Temporadas/">Temporadas</a>
+                            <a class="nav-link" href="http://localhost:8080/partidos-app/Git/CrudAPP-de-baseball/Temporadas/">Temporadas</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="http://localhost:8080/partidos-app/Git/CrudAPP-de-baseball/Rosters/">Rosters</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link " href="http://localhost:8080/partidos-app/Git/CrudAPP-de-baseball/Avisos/">Avisos</a>
+                            <a class="nav-link active" href="http://localhost:8080/partidos-app/Git/CrudAPP-de-baseball/Avisos/">Avisos</a>
                         </li>
                     </ul>
                     <form class="d-flex" role="search">
@@ -98,76 +107,34 @@
             </div>
         </nav>
     </div>
-    
+
     <div class="container" style="margin-top: 10px;">
-        <form class="row g-3" action="insertar.php?id=<?php echo $idTemporada ?>" method="POST" id="formulario">
-            <div class="col-md-3">
-                <label for="inputIDTemporada" class="form-label"><strong>IDTemporada</strong></label>
-                <input type="text" class="form-control" id="inputIDTemporada" name="IDTemporada" required="true" disabled value="<?php echo($idTemporada); ?>">
+        <form class="row g-3" action="insertar.php?id=<?php echo $IDAviso?>" method="POST" id="formulario">
+            <div class="col-md-2">
+                <label for="inputIDAviso" class="form-label"><strong>IDAviso</strong></label>
+                <input type="text" class="form-control" id="inputIDAviso" name="IDAviso" required="true" readonly value="<?php echo($IDAviso); ?>">
             </div>
-            <div class="col-md-3">
-                <label for="inputIDLiga" class="form-label"><strong>IDLiga</strong></label>
-                <select id="inputIDLiga" class="form-select" name="IDLiga" required="true" >
-                    <?php
-                        while ($rowL=mysqli_fetch_array($queryLiga)) {
-                            echo "<option>".$rowL['IDLiga']."</option>";
-                        }
-                    ?>
-                </select>
+            <div class="col-md-5">
+                <label for="inputAviso" class="form-label"><strong>Aviso</strong></label>
+                <input type="text" class="form-control" id="inputAviso" name="Aviso" required="true" >
             </div>
-            <div class="col-md-3">
-                <label for="inputGrupo" class="form-label"><strong>Grupo</strong></label>
-                <select id="inputGrupo" class="form-select" name="Grupo" required="true" >
-                    <option selected >Novatas</option>
-                    <option>Intermedio</option>
-                </select>
-            </div>
-            <div class="col-md-3">
-                <label for="inputTemporada" class="form-label"><strong>Temporada</strong></label>
-                <input type="text" class="form-control" id="inputTemporada" name="Temporada" required="true" value="<?php echo($DateA)?>" readonly=»readonly»>
-            </div>
-            <div class="col-md-3">
-                <label for="inputCategoria" class="form-label"><strong>Categoria</strong></label>
-                <select id="inputCategoria" class="form-select" name="Categoria" required="true" >
-                    <option selected >Varonil</option>
-                    <option>Femenil</option>
-                    
-                </select>
-            </div>
-            <div class="col-md-3">
-                <label for="inputMomento" class="form-label"><strong>Momento</strong></label>
-                <select id="inputMomento" class="form-select" name="Momento" required="true" >
-                    <option selected >Amistoso</option>
-                    <option>Torneo</option>
-                    
-                </select>
-            </div>
-            <div class="col-md-3">
-                <label for="inputState" class="form-label"><strong>Status</strong></label>
-                <select id="inputState" class="form-select" name="Status" required="true" >
-                    <option selected>1</option>
-                    <option>0</option>
-                </select>
-            </div>
+    
             <div class="col-12">
                 <button type="submit" class="btn btn-primary"><strong>Registrar</strong></button>
             </div>
         </form>
         <br>
+        <br>
         
-        <div class="col-md-12" style="height:300px; overflow: auto;">
+        <div class="col-md-10" style="height:300px; overflow: auto;">
             <table class="table">
                 <thead class="table-success table-striped">
                     <tr>
-                        <th>IDTemporada</th>
-                        <th>IDLiga</th>
-                        <th>Grupo</th>
-                        <th>Categoria</th>
-                        <th>Momento</th>
-                        <th>Temporada</th>
-                        <th>Status</th>
+                        <th>IDAviso</th>
+                        <th>Aviso</th>
                         <th>Editar</th>
                         <th>Eliminar</th>
+                        
                     </tr>
                 </thead>
                 
@@ -176,19 +143,14 @@
                         while($row=mysqli_fetch_array($query)){
                     ?>
                     <tr>
-                        <th><?php  echo $row['IDTemporada']?></th>
-                        <th><?php  echo $row['IDLiga']?></th>
-                        <th><?php  echo $row['Grupo']?></th>
-                        <th><?php  echo $row['Categoria']?></th>
-                        <th><?php  echo $row['Momento']?></th>
-                        <th><?php  echo $row['Temporada']?></th>
-                        <th><?php  echo $row['Status']?></th>
-                        <th><a href="actualizar.php?id=<?php echo $row['IDTemporada'] ?>"
+                        <th><?php  echo $row['IDAviso']?></th>
+                        <th><?php  echo $row['Aviso']?></th>
+                        <th><a href="actualizar.php?id=<?php echo $row['IDAviso'] ?>"
                             class="btn btn-primary">Editar</a></th>
-                        <th><a href="delete.php?id=<?php echo $row['IDTemporada'] ?>"
+                        <th><a href="delete.php?id=<?php echo $row['IDAviso'] ?>"
                             class="btn btn-danger">Eliminar</a></th>
                     </tr>
-                    <?php
+                    <?php 
                         }
                     ?>
                 </tbody>

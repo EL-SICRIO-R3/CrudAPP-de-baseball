@@ -120,6 +120,9 @@
                         <li class="nav-item">
                             <a class="nav-link" href="http://localhost:8080/partidos-app/Git/CrudAPP-de-baseball/Rosters/">Rosters</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link " href="http://localhost:8080/partidos-app/Git/CrudAPP-de-baseball/Avisos/">Avisos</a>
+                        </li>
                     </ul>
                     
                     <form class="d-flex" role="search">
@@ -224,16 +227,63 @@
                 <input type="text" class="invisible" value=1 id="Jornada" name="Jornada" required="true">
             </div>
             
+            <script>
+                function cambiarLogoLocal(){
+                    var equipoId = document.getElementById("inputEquipoLocal").value;
+
+                    var xhr = new XMLHttpRequest();
+                    xhr.onreadystatechange = function() {
+                        if (xhr.readyState === XMLHttpRequest.DONE) {
+                        if (xhr.status === 200) {
+                            var response = JSON.parse(xhr.responseText);
+                            var nombreLogo = response.nombreLogo;
+                            console.log(nombreLogo);
+
+                            // Actualizar el atributo 'src' de la imagen con el nuevo nombre del logo
+                            document.getElementById("imgEquipoLocal").src = "../img/logos/" + nombreLogo;
+                        } else {
+                            console.log("Error en la petición AJAX");
+                        }
+                        }
+                    };
+
+                    xhr.open("GET", "Consultas.php?id=" + equipoId, true);
+                    xhr.send();
+                }
+
+                function cambiarLogoVisitante(){
+                    var equipoId = document.getElementById("inputEquipoVisitante").value;
+
+                    var xhr = new XMLHttpRequest();
+                    xhr.onreadystatechange = function() {
+                        if (xhr.readyState === XMLHttpRequest.DONE) {
+                        if (xhr.status === 200) {
+                            var response = JSON.parse(xhr.responseText);
+                            var nombreLogo = response.nombreLogo;
+                            console.log(nombreLogo);
+
+                            // Actualizar el atributo 'src' de la imagen con el nuevo nombre del logo
+                            document.getElementById("imgEquipoVisitante").src = "../img/logos/" + nombreLogo;
+                        } else {
+                            console.log("Error en la petición AJAX");
+                        }
+                        }
+                    };
+
+                    xhr.open("GET", "Consultas.php?id=" + equipoId, true);
+                    xhr.send();
+                }
+            </script>
             <div class="row divLogo" style="margin-top: 50px; ">
                 
                 <div class="col-md-3 imgEquipoLocal" style="">
-                    <img src="../img/logos/tomateros.png" alt="" id="imgEquipoLocal">
+                    <img src="" alt="" id="imgEquipoLocal">
                 </div>
                 <div class="col-md-3 lblVS">
                     <h1><strong>VS</strong></h1>
                 </div>
                 <div class="col-md-3 imgEquipoVisitante">
-                    <img src="../img/logos/venados.png" alt="" id="imgEquipoLocal">
+                    <img src="" alt="" id="imgEquipoVisitante">
                 </div>
                 <script>
                     function MFinal(){
@@ -306,7 +356,7 @@
                                 }
                             }
                         </script>
-                        <input type="Number"  class="form-control" id="inputInnings" name="Inning" required="true" tabindex="6"  oninput="if( this.value.length > 2 )  this.value = this.value.slice(0,2)" max="10" onkeypress="validarInning(event)">
+                        <input type="Number"  class="form-control" id="inputInnings" name="Inning" required="true" tabindex="6" min="0"  oninput="if( this.value.length > 2 )  this.value = this.value.slice(0,2)" max="10" onkeypress="validarInning(event)">
                     </div>
                 </div>
                 
@@ -342,7 +392,7 @@
                     <tbody>
                         <tr>
                             <th>
-                                <select id="inputEquipoVisitante" class="form-select" name="EquipoVisitante" required="true" tabindex="7">
+                                <select id="inputEquipoVisitante" class="form-select" name="EquipoVisitante" required="true" tabindex="7" onchange="cambiarLogoVisitante()">
                                     <option value="" disabled selected>Equipo Visitante</option>
                                     <?php
                                         while ($rowEV=mysqli_fetch_array($queryEquipo)) {
@@ -419,7 +469,7 @@
                         </tr>
                         <tr>
                             <th>
-                                <select id="inputEquipoLocal" class="form-select" name="EquipoLocal" required="true" tabindex="8">
+                                <select id="inputEquipoLocal" class="form-select" name="EquipoLocal" required="true" tabindex="8" onchange="cambiarLogoLocal()">
                                     <option value="" disabled selected>Equipo Local</option>
                                     <?php
                                         while ($rowEL=mysqli_fetch_array($queryEquipoLocal)) {
