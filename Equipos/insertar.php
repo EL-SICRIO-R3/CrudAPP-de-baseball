@@ -12,14 +12,14 @@ $IDTecnico=$_POST['IDTecnico'];
 if(isset($_FILES["Logo"]) && $_FILES["Logo"]["error"] == 0) {
     $file = $_FILES["Logo"];
 
-    $nombreArchivo = $_FILES['imagen']['name']; // Obtener el nombre original del archivo
+    /*$nombreArchivo = $_FILES['imagen']['name']; // Obtener el nombre original del archivo
     $nombreTemporal = $_FILES['imagen']['tmp_name']; // Obtener el nombre temporal del archivo
 
     // Generar un nuevo nombre para el archivo
     $nuevoNombre = 'nuevo_nombre.jpg'; // Cambia 'nuevo_nombre.jpg' por el nombre deseado
 
     // Mover el archivo a la ubicación deseada con el nuevo nombre
-    move_uploaded_file($nombreTemporal, $nuevoNombre);
+    move_uploaded_file($nombreTemporal, $nuevoNombre);*/
     // Obtener información del archivo
     $fileName = $file["name"];
     $fileType = $file["type"];
