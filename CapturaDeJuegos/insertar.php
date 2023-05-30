@@ -16,6 +16,12 @@ $IDEquipoLocal=$_POST['EquipoLocal'];
 $Final1=$_POST['Final1'];
 $Final2=$_POST['Final2'];
 $IDAviso=1;
+$ErroresVisitante=$_POST['Inning1E'];
+$ErroresLocal=$_POST['Inning2E'];
+$CarrerasVisitante=$_POST['Inning1C'];
+$CarrerasLocal=$_POST['Inning2C'];
+$HitsVisitante=$_POST['Inning1H'];
+$HitsLocal=$_POST['Inning2H'];
 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -31,32 +37,30 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 };
 
 //echo $IDJuego."-".$IDTemporada."-".$IDCampo."-".$Jornada."-".$Fecha."-".$Hora."-".$Clima."-".$IDEquipoVisitante."-".$Final1."-".$IDAviso."-".$Final2;
-echo "Equipo local: ".$IDEquipoLocal;
+echo "Equipo local: ".$CarrerasVisitante;
 echo "<br>";
-echo "Equipo Visitante: ".$IDEquipoVisitante;
+echo "Equipo Visitante: ".$CarrerasLocal;
 echo "<br>";
 
 $Final=$Final1."-".$Final2;
+echo "Final: ".$Final;
+echo "<br>";
 
-
-$sqlJuegos="INSERT INTO Juegos (IDJuego, IDtemporada, Jornada, IDCampo, Fecha, Hora, Clima, IDEquipoVisitante, IDEquipoLocal, Final, IDAviso) 
-VALUES ($IDJuego,$IDTemporada, $Jornada, $IDCampo, '$Fecha', '$Hora', '$Clima', $IDEquipoVisitante, $IDEquipoLocal, '$Final', $IDAviso)";
+$sqlJuegos="INSERT INTO Juegos (IDJuego, IDtemporada, Jornada, IDCampo, Fecha, Hora, Clima, IDEquipoVisitante, IDEquipoLocal, Final, IDAviso, ErroresLocal, ErroresVisitante, CarrerasLocal, CarrerasVisitante, HitsLocal, HitsVisitante) 
+VALUES ($IDJuego,$IDTemporada, $Jornada, $IDCampo, '$Fecha', '$Hora', '$Clima', $IDEquipoVisitante, $IDEquipoLocal, '$Final', $IDAviso, $ErroresLocal, $ErroresVisitante, $CarrerasLocal, $CarrerasVisitante, $HitsLocal, $HitsVisitante)";
 $queryJuegos= mysqli_query($con,$sqlJuegos);
 
 
 
 $Innings=$_POST['Inning'];
-$EntradaAlta=$_POST['Inning1E'];
-$EntradaBaja=$_POST['Inning2E'];
-$CarrerasAlta=$_POST['Inning1C'];
-$CarrerasBaja=$_POST['Inning2C'];
+
 
 //echo $Innings;
 
 for ($i = 1; $i < $Innings+1; $i++) {
     $CarrerasLocal=$_POST['Inning2'.$i];
     $CarrerasVisitante=$_POST['Inning1'.$i];
-    $sqlEntradas="INSERT INTO Entradas (IDJuego, IDInning, CarrerasLocal, CarrerasVisitante, EntradaAlta, EntradaBaja, CarrerasAlta, CarrerasBaja) VALUES ($IDJuego,$i, $CarrerasLocal, $CarrerasVisitante, $EntradaAlta, $EntradaBaja, $CarrerasAlta, $CarrerasBaja)";
+    $sqlEntradas="INSERT INTO Entradas (IDJuego, IDInning, CarrerasLocal, CarrerasVisitante) VALUES ($IDJuego,$i, $CarrerasLocal, $CarrerasVisitante)";
     $queryEntradas= mysqli_query($con,$sqlEntradas);
 }
 

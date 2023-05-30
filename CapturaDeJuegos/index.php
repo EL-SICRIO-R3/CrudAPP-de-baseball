@@ -453,7 +453,7 @@
                             </th>
                             <th style="width: 60px;">
                                 <div class="col-md-2" style="width: 60px;">
-                                    <input type="Number"  class="form-control" id="inputInning1C" name="Inning1C" required="true" tabindex="29" min="0"  disabled>
+                                    <input type="Number"  class="form-control" id="inputInning1C" name="Inning1C" required="true" tabindex="29" min="0"  readonly>
                                 </div>
                             </th>
                             <th style="width: 60px;">
@@ -530,7 +530,7 @@
                             </th>
                             <th style="width: 60px;">
                                 <div class="col-md-2" style="width: 60px;">
-                                    <input type="Number"  class="form-control" id="inputInning2C" name="Inning2C" required="true" tabindex="30" min="0"  disabled>
+                                    <input type="Number"  class="form-control" id="inputInning2C" name="Inning2C" required="true" tabindex="30" min="0"  readonly>
                                 </div>
                             </th>
                             <th style="width: 60px;">
