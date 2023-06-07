@@ -12,7 +12,7 @@ $IDTecnico=$_POST['Tecnico'];
 
 echo $IDTecnico;
 
-$sql="UPDATE Equipos SET  Nombre='$Nombre', IDLogo='$Logo', Ciudad='$Ciudad', IDTecnico='$IDTecnico' WHERE IDEquipo='$id'";
+$sql="UPDATE Equipos SET  Nombre='$Nombre', IDLogo='$Logo', Ciudad='$Ciudad', IDTecnico=$IDTecnico WHERE IDEquipo='$id'";
 $query=mysqli_query($con,$sql);
 
 if($query){

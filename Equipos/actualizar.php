@@ -28,7 +28,10 @@
     <title>Actualizar</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="styles.css">
+    <script src="./validaciones.js"></script>
+    <script src="../js/Validaciones.js"></script>
 </head>
 
 <body>
@@ -55,14 +58,14 @@
             
             <div class="col-md-2">
                 <label for="inputIDTecnico" class="form-label"><strong>Tecnico</strong></label>
-                <select id="inputIDTecnico" class="form-select" name="Tecnico" required="true" value="<?php echo $row[IDTecnico]?>">
+                <select id="inputIDTecnico" class="form-select" name="Tecnico" required="true" value="<?php echo $row['IDTecnico']?>">
                     <?php
 
                         $rowTecnicoActual=mysqli_fetch_array($qTecnicoActual);
                         echo "<option value=".$rowTecnicoActual['IDTecnico']." selected>".$rowTecnicoActual['Nombre']."</option>";
 
                         while ($rowT=mysqli_fetch_array($queryTecnico)) {
-                            echo "<option value=".$rowE['IDTecnico'].">".$rowT['Nombre']."</option>";
+                            echo "<option value=".$rowT['IDTecnico'].">".$rowT['Nombre']."</option>";
                         }
                     ?>
                 </select>

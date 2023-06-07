@@ -67,7 +67,7 @@ CREATE TABLE Manejadores(
 CREATE TABLE Equipos(
   IDEquipo int(4) PRIMARY KEY,
   Nombre varchar(20),
-  IDLogo int,
+  IDLogo varchar(150),
   Ciudad varchar(30),
   IDTecnico int(4),
 
@@ -109,7 +109,7 @@ CREATE TABLE Entradas(
   IDJuego int,
   IDInning int,
   CarrerasLocal int,
-  CarrerasVisitante int
+  CarrerasVisitante int,
 
   FOREIGN KEY(IDJuego) REFERENCES Juegos(IDJuego)
 
@@ -133,4 +133,23 @@ CREATE TABLE Rosters (
   FOREIGN KEY(IDEquipo) REFERENCES Equipos(IDEquipo),
   FOREIGN KEY(IDTemporada) REFERENCES Temporadas(IDTemporada),
   FOREIGN KEY(IDAfiliacion) REFERENCES Jugadores(IDAfiliacion)
+);
+
+
+CREATE TABLE Turnos(
+  IDJuego int(6),
+  IDEquipo int(6),
+  Turno int(2),
+  Inning int(2),
+  Posicion varchar(2),
+  Tipo varchar(3),
+  Resultado varchar(6),
+  Carrera int(1),
+  Producciones int(1),
+  Detalles varchar(3),
+  IDBateador int(6),
+  IDLanzador int(6),
+  FOREIGN KEY(IDJuego) REFERENCES Juegos(IDJuego),
+  FOREIGN KEY(IDBateador) REFERENCES Jugadores(IDAfiliacion),
+  FOREIGN KEY(IDLanzador) REFERENCES Jugadores(IDAfiliacion)
 );

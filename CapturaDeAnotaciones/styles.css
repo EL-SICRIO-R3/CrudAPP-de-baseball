@@ -1,0 +1,103 @@
+body {
+    background-color: #C2D6D3;
+}
+
+#header {
+    border-radius: 10px;
+}
+
+input:invalid {
+    border-color: red;
+}
+
+input,
+input:valid {
+    border-color: #ccc;
+}
+
+
+#contenedorFormulario {
+    margin-top: 40px;
+    background-color: white;
+    border-radius: 40px;
+    height: 520px;
+    
+}
+
+.divLogo{
+    /*background-color: red;*/
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    left: 70px;
+}
+.imgEquipoLocal{
+    height: 200px;
+    width: 200px;
+}
+.imgEquipoVisitante{
+    height: 200px;
+    width: 200px;
+}
+.lblVS{
+    height: 100px;
+    width: 100px;
+    text-align: center;
+}
+#maradorFinal{
+    /*background-color: blue;*/
+    position: relative;
+    left: 100px;
+    width: 140px;
+    text-align: center;
+    align-items: center;
+}
+#inputFinalLocal{
+    width: 70px;
+    position: relative;
+    left: 25%;
+}
+#inputFinalVisitante{
+    width: 70px;
+    position: relative;
+    left: 25%;
+}
+#inputInnings{
+    width: 70px;
+    position: relative;
+    left: 28%;
+}
+#innings{
+    position: relative;
+    /*background-color: blue;*/
+    width: 140px;
+    text-align: center;
+}
+img{
+    height: 200px;
+    width: 200px;
+}
+.btn-p{
+    width: 50px;
+    height: 40px;
+    /*padding: 5px;*/
+    border-color: rgb(0, 0, 0) !important;
+}
+.btn-b{
+    width: 40px;
+    height: 40px;
+    /*padding: 5px;*/
+    border-color: rgb(0, 0, 0) !important;
+    /*border-radius: initial;*/
+}
+
+.input-j{
+    width: 130px;
+    height: 80px;
+    padding: 0px;
+    margin: 0px;
+    /* display: inline-block; */
+    border-radius: initial;
+}

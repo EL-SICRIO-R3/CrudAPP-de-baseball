@@ -42,7 +42,7 @@
     $idAmpayer=$idAmpayer*100; */
 
     $IDJuego=$id['id']+1;
-
+ 
     $idJ = strlen($IDJuego);
 
     if($idJ==1)
@@ -91,37 +91,40 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="http://localhost:8080/partidos-app/Git/CrudAPP-de-baseball/CapturaDeJuegos/">Partidos</a>
+                    <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="http://localhost/partidos-app/Git/CrudAPP-de-baseball/CapturaDeJuegos/">Partidos</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="http://localhost:8080/partidos-app/Git/CrudAPP-de-baseball/Equipos/">Equipos</a>
+                            <a class="nav-link " href="http://localhost/partidos-app/Git/CrudAPP-de-baseball/Equipos/">Equipos</a>
                         </li>
                         
                         <li class="nav-item">
-                            <a class="nav-link" href="http://localhost:8080/partidos-app/Git/CrudAPP-de-baseball/Jugadores/">Jugadores</a>
+                            <a class="nav-link" href="http://localhost/partidos-app/Git/CrudAPP-de-baseball/Jugadores/">Jugadores</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="http://localhost:8080/partidos-app/Git/CrudAPP-de-baseball/Ampayers/">Ampayers</a>
+                            <a class="nav-link " href="http://localhost/partidos-app/Git/CrudAPP-de-baseball/Ampayers/">Ampayers</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="http://localhost:8080/partidos-app/Git/CrudAPP-de-baseball/Manejadores/">Manejadores</a>
+                            <a class="nav-link" href="http://localhost/partidos-app/Git/CrudAPP-de-baseball/Manejadores/">Manejadores</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="http://localhost:8080/partidos-app/Git/CrudAPP-de-baseball/Parques/">Parques</a>
+                            <a class="nav-link" href="http://localhost/partidos-app/Git/CrudAPP-de-baseball/Parques/">Parques</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="http://localhost:8080/partidos-app/Git/CrudAPP-de-baseball/Ligas/">Ligas</a>
+                            <a class="nav-link" href="http://localhost/partidos-app/Git/CrudAPP-de-baseball/Ligas/">Ligas</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="http://localhost:8080/partidos-app/Git/CrudAPP-de-baseball/Temporadas/">Temporadas</a>
+                            <a class="nav-link" href="http://localhost/partidos-app/Git/CrudAPP-de-baseball/Temporadas/">Temporadas</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="http://localhost:8080/partidos-app/Git/CrudAPP-de-baseball/Rosters/">Rosters</a>
+                            <a class="nav-link" href="http://localhost/partidos-app/Git/CrudAPP-de-baseball/Rosters/">Rosters</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link " href="http://localhost:8080/partidos-app/Git/CrudAPP-de-baseball/Avisos/">Avisos</a>
+                            <a class="nav-link " href="http://localhost/partidos-app/Git/CrudAPP-de-baseball/Avisos/">Avisos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " href="http://localhost/partidos-app/Git/CrudAPP-de-baseball/CapturaDeAnotaciones/">Anotaciones</a>
                         </li>
                     </ul>
                     
@@ -276,7 +279,7 @@
             </script>
             <div class="row divLogo" style="margin-top: 50px; ">
                 
-                <div class="col-md-3 imgEquipoLocal" style="">
+                <div class="col-md-3 imgEquipoLocal" >
                     <img src="" alt="" id="imgEquipoLocal">
                 </div>
                 <div class="col-md-3 lblVS">
@@ -326,7 +329,7 @@
                     }
                 </script>
                 <div class="col-md-4 marcadorFinal"  id="maradorFinal">
-                    <div class="col-md-4 " style="">
+                    <div class="col-md-4 " >
                         <label for="inputFinal" class="form-label" style="width: 140px;"><strong>Marcador Final</strong></label>
                         <div class="row" style="width: 80px; position:relative; left: 30px">
                             <input type="number" class="form-control" id="inputFinalLocal" name="Final1" required="true" readonly>
@@ -607,11 +610,11 @@
                     <label for="inputSalvo" class="form-label"><strong>Aviso:</strong></label>
                 </div>
                 <div class="col-md-3" style="position: relative; top: 20px;">
-                    <select id="inputEquipoLocal" class="form-select" name="Aviso" required="true" >
+                    <select id="inputEquipoLocal" class="form-select" name="Aviso"  >
                         <option value="" disabled selected>Aviso</option>
                         <?php
                             while ($rowAV=mysqli_fetch_array($queryAviso)) {
-                                echo "<option value=".$rowAB['IDAviso'].">".$rowAV['Aviso']."</option>";
+                                echo "<option value=".$rowAV['IDAviso'].">".$rowAV['Aviso']."</option>";
                             }
                         ?>
                     </select>
