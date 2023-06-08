@@ -142,7 +142,7 @@
         btn.classList.add("clicked");
         //document.getElementById('Jornada').value;
                         
-        console.log(document.getElementById('Jornada').value);
+        //console.log(document.getElementById('Jornada').value);
     }
 
 </script>
@@ -225,9 +225,9 @@
                         
                         var btn = document.getElementById(button);
                         btn.classList.add("clicked");
-                        document.getElementById('Jornada').value=jornada;
+                        document.getElementById('InputJornada').value=jornada;
                         
-                        console.log(document.getElementById('Jornada').value);
+                        console.log(document.getElementById('InputJornada').value);
                         
                     }
                 </script>
@@ -251,7 +251,7 @@
                     <button type="button" class="btn btn-secondary" id="btnJ16" onclick="pb2('btnJ16',16)" tabindex="50">x</button>
                     
                 </div>
-                <input type="text" class="invisible" value=1 id="InputJornada" name="Jornada" required="true" value="<?php echo $rowJA['Jornada']; ?>">
+                <input type="text" class="invisible" id="InputJornada" name="Jornada" required="true" value="<?php echo $rowJA['Jornada']; ?>">
             </div>
             
             <script>

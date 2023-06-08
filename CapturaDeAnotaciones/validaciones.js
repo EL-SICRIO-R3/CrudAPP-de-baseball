@@ -44,7 +44,7 @@ function pagina(nombre, apellidos) {
 
     //console.log(apellidos);
     //console.log(nombre);
-    var strPagina = "http://localhost:8080/programacion-web/CrudJugadores/CrudJugadores/jugador/";
+    var strPagina = "http://localhost/programacion-web/CrudJugadores/CrudJugadores/jugador/";
     //console.log(strPagina);
 
     let nombreCompleto = nombre + " " + apellidos;
@@ -155,7 +155,9 @@ function Inn(button, num) {
 }
 
 function PruebaP(event, op) {
+
     if (event.keyCode === 13) {
+        console.log("Funciona")
         var innings = document.getElementById("inputIDJuego").value;
 
         var Param = {
