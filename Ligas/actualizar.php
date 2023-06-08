@@ -21,6 +21,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link rel="stylesheet" href="styles.css">
+    <script src="../js/Validaciones.js"></script>
 </head>
 
 <body>
@@ -57,7 +58,7 @@
             </div>
             <div class="col-md-3">
                 <label for="inputTelefono" class="form-label"><strong>Telefono</strong></label>
-                <input type="tel" class="form-control" id="inputTelefono" name="Telefono" maxlength="10"
+                <input type="tel" class="form-control" id="inputTelefono" name="Telefono" maxlength="10" minlength="10"
                     onkeypress="return soloNumeros(event)" value="<?php echo $row['Telefono']?>"required="true">
             </div>
             <div class="col-md-5">
@@ -74,7 +75,7 @@
                 </select>
             </div>
             <div class="col-12">
-                <button type="submit" class="btn btn-primary">Editar</button>
+                <button type="submit" class="btn btn-primary">Guardar</button>
             </div>
         </form>
     </div>

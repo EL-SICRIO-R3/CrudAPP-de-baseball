@@ -12,7 +12,8 @@ $Categoria=$_POST['Categoria'];
 $Momento=$_POST['Momento'];
 $Status=$_POST['Status'];
 
-$sql="INSERT INTO Temporadas (IDTemporada, IDLiga, Grupo, Temporada, Categoria, Momento, Status) VALUES ($IDTemporada,'$IDLiga','$Grupo',$Temporada,'$Categoria','$Momento',$Status)";
+$sql="INSERT INTO Temporadas (IDTemporada, IDLiga, Grupo, Temporada, Categoria, Momento, Status)
+VALUES ($IDTemporada,'$IDLiga','$Grupo',$Temporada,'$Categoria','$Momento',$Status)";
 $query= mysqli_query($con, $sql);
 
 if ($query) {

@@ -54,7 +54,7 @@
             </div>
             <div class="col-md-3">
                 <label for="inputTemporada" class="form-label"><strong>Temporada</strong></label>
-                <input type="text" class="form-control" id="inputTemporada" name="Temporada" required="true" value="<?php echo $row['Temporada']?>">
+                <input type="text" class="form-control" id="inputTemporada" name="Temporada" disabled required="true" value="<?php echo $row['Temporada']?>">
             </div>
             <div class="col-md-3">
                 <label for="inputCategoria" class="form-label"><strong>Categoria</strong></label>
@@ -83,7 +83,7 @@
                 </select>
             </div>
             <div class="col-12">
-                <button type="submit" class="btn btn-primary">Editar</button>
+                <button type="submit" class="btn btn-primary">Guardar</button>
             </div>
         </form>
     </div>

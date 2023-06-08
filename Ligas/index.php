@@ -89,7 +89,7 @@
         <form class="row g-3" action="insertar.php" method="POST" id="formulario">
             <div class="col-md-3">
                 <label for="inputIDLiga" class="form-label"><strong>IDLiga</strong></label>
-                <input type="text" class="form-control" id="inputIDLiga" name="IDLiga" required="true" onkeypress="return soloLetras(event)" maxlength="3">
+                <input type="text" class="form-control" id="inputIDLiga" name="IDLiga" required="true" onkeypress="return soloLetras(event)" minlength="3" maxlength="3">
             </div>
             <div class="col-md-4">
                 <label for="inputDescripcion" class="form-label"><strong>Descripcion</strong></label>
@@ -113,7 +113,7 @@
             </div>
             <div class="col-md-3">
                 <label for="inputTelefono" class="form-label"><strong>Telefono</strong></label>
-                <input type="tel" class="form-control" id="inputTelefono" name="Telefono" maxlength="10" onkeypress="return soloNumeros(event)" required="true">
+                <input type="tel" class="form-control" id="inputTelefono" name="Telefono" minlength="10" maxlength="10" onkeypress="return soloNumeros(event)" required="true">
             </div>
             <div class="col-md-5">
                 <label for="inputRedes" class="form-label"><strong>Redes</strong></label>

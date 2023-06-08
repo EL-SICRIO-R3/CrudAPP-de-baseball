@@ -10,12 +10,20 @@
 
     $id=mysqli_fetch_array($queryId);
 
-    //$row=mysqli_fetch_array($query);
-    $idTemporada= date("y");
-    $idTemporada=$idTemporada*10000;
+    $idTemporada= 1 . date("m") . date("y");
+    $idTemporada=$idTemporada*10;
     $idTemporada=$idTemporada+$id['id']+1;
     $DateA = date("Y");
-
+    
+    $sqlConpa = "SELECT IDTemporada FROM Temporadas";
+    $queryConpa=mysqli_query($con, $sqlConpa);
+    foreach ($queryConpa as $valor) {
+        //echo $valor['IDTemporada'] . "<br>";
+        if ($valor['IDTemporada'] == $idTemporada) {
+            //echo "Este es: ".$idTemporada."<br>";
+            $idTemporada += 1;
+        }
+    }
     
     $sqlLiga="SELECT *  FROM Ligas";
     $queryLiga=mysqli_query($con, $sqlLiga);
@@ -106,7 +114,7 @@
         <form class="row g-3" action="insertar.php?id=<?php echo $idTemporada ?>" method="POST" id="formulario">
             <div class="col-md-3">
                 <label for="inputIDTemporada" class="form-label"><strong>IDTemporada</strong></label>
-                <input type="text" class="form-control" id="inputIDTemporada" name="IDTemporada" required="true" readonly value="<?php echo($idTemporada); ?>">
+                <input type="text" class="form-control" id="inputIDTemporada" name="IDTemporada" required="true" disabled value="<?php echo($idTemporada); ?>">
             </div>
             <div class="col-md-3">
                 <label for="inputIDLiga" class="form-label"><strong>IDLiga</strong></label>

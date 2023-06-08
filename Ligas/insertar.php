@@ -14,7 +14,8 @@ $Telefono=$_POST['Telefono'];
 $Redes=$_POST['Redes'];
 $Status=$_POST['Status'];
 
-$sql="INSERT INTO Ligas (IDLiga, Descripcion, Presidente, Coordinador, Mapa, Direccion, Telefono, Redes, Status) VALUES ('$IDLiga','$Descripcion','$Presidente','$Coordinador','$Mapa','$Direccion','$Telefono','$Redes',$Status)";
+$sql="INSERT INTO Ligas (IDLiga, Descripcion, Presidente, Coordinador, Mapa, Direccion, Telefono, Redes, Status) 
+VALUES ('$IDLiga','$Descripcion','$Presidente','$Coordinador','$Mapa','$Direccion','$Telefono','$Redes',$Status)";
 $query= mysqli_query($con, $sql);
 
 if ($query) {
